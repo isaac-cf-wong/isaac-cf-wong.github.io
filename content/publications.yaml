@@ -57,6 +57,25 @@ items:
             url: https://inspirehep.net/literature/3131604
     - include: true
       highlight: false
+      title: 'GWTC-4.0: Tests of General Relativity. II. Parameterized Tests'
+      authors:
+          - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
+      venue: arXiv:2603.19020
+      year: 2026
+      type: preprint
+      arxiv: '2603.19020'
+      key: arxiv:2603.19020
+      source: inspire
+      claimed: true
+      author_count: 1783
+      collaboration: true
+      links:
+          - label: arXiv
+            url: https://arxiv.org/abs/2603.19020
+          - label: INSPIRE
+            url: https://inspirehep.net/literature/3131614
+    - include: true
+      highlight: false
       title:
           'GWTC-4.0: Tests of General Relativity. I. Overview and General Tests'
       authors:
