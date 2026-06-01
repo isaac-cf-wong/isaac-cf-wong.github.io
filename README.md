@@ -1,5 +1,7 @@
 # Personal website
 
+[![codecov](https://codecov.io/gh/isaac-cf-wong/isaac-cf-wong.github.io/graph/badge.svg?token=N4V94JF8FC)](https://codecov.io/gh/isaac-cf-wong/isaac-cf-wong.github.io)
+
 A content-driven personal academic website. All information lives in plain,
 structured files; the site is rendered from them. To update the site, you edit
 data — not HTML.
