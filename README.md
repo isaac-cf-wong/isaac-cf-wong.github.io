@@ -1,6 +1,12 @@
 # Personal website
 
+[![Python CI](https://github.com/isaac-cf-wong/isaac-cf-wong.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/isaac-cf-wong/isaac-cf-wong.github.io/actions/workflows/ci.yml)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/isaac-cf-wong/isaac-cf-wong.github.io/main.svg)](https://results.pre-commit.ci/latest/github/isaac-cf-wong/isaac-cf-wong.github.io/main)
+[![Website Status](https://github.com/isaac-cf-wong/isaac-cf-wong.github.io/actions/workflows/deploy.yml/badge.svg)](https://isaac-cf-wong.github.io/)
 [![codecov](https://codecov.io/gh/isaac-cf-wong/isaac-cf-wong.github.io/graph/badge.svg?token=N4V94JF8FC)](https://codecov.io/gh/isaac-cf-wong/isaac-cf-wong.github.io)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](LICENSE)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![SPEC 0 — Minimum Supported Dependencies](https://img.shields.io/badge/SPEC-0-green?labelColor=%23004811&color=%235CA038)](https://scientific-python.org/specs/spec-0000/)
 
 A content-driven personal academic website. All information lives in plain,
 structured files; the site is rendered from them. To update the site, you edit
