@@ -39,7 +39,18 @@
                         ]
                     },
                     "highlight": { "type": "boolean" },
+                    "include": { "type": "boolean" },
                     "abstract": { "type": "string" },
+                    "key": { "type": "string" },
+                    "doi": { "type": "string" },
+                    "arxiv": { "type": "string" },
+                    "source": {
+                        "type": "string",
+                        "enum": ["manual", "inspire"]
+                    },
+                    "claimed": { "type": "boolean" },
+                    "author_count": { "type": "integer", "minimum": 1 },
+                    "collaboration": { "type": "boolean" },
                     "links": {
                         "type": "array",
                         "items": {

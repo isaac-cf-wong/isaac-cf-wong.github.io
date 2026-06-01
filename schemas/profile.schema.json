@@ -113,6 +113,15 @@
                     }
                 }
             }
+        },
+        "publications_sync": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "orcid": { "type": "string" },
+                "author_name": { "type": "string" },
+                "claimed_only": { "type": "boolean" }
+            }
         }
     }
 }

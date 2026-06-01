@@ -99,7 +99,8 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
     talks = sorted(_items(content, "talks"), key=lambda item: item.get("date", ""), reverse=True)
     awards = sorted(_items(content, "awards"), key=lambda item: item.get("year", 0), reverse=True)
 
-    publications = sorted(_items(content, "publications"), key=lambda item: item.get("year", 0), reverse=True)
+    included_publications = [p for p in _items(content, "publications") if p.get("include", True) is not False]
+    publications = sorted(included_publications, key=lambda item: item.get("year", 0), reverse=True)
     publications_by_year = [
         {"year": year, "items": list(group)} for year, group in groupby(publications, key=lambda item: item.get("year"))
     ]
