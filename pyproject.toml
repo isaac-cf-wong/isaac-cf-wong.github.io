@@ -18,26 +18,26 @@ classifiers = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-  "typer>=0.24.1",
-  "jinja2>=3.1.4",
-  "pyyaml>=6.0.2",
-  "jsonschema>=4.23.0",
-  "markdown>=3.7",
+  "typer>=0.26.3",
+  "jinja2>=3.1.6",
+  "pyyaml>=6.0.3",
+  "jsonschema>=4.26.0",
+  "markdown>=3.10.2",
 ]
 dynamic = ["version"]
 
 [dependency-groups]
 dev = [
-  "ruff>=0.15.11",
-  "prek>=0.3.13",
+  "ruff>=0.15.15",
+  "prek>=0.4.3",
   "pytest-github-actions-annotate-failures>=0.4.0",
   "pytest-cov>=7.1.0",
   "pytest-mock>=3.15.1",
   "pytest>=9.0.3",
 ]
-docs = ["zensical>=0.0.33", "mkdocstrings-python>=2.0.3"]
+docs = ["zensical>=0.0.43", "mkdocstrings-python>=2.0.3"]
 build = ["hatch>=1.16.5"]
-release = ["git-cliff>=2.12.0"]
+release = ["git-cliff>=2.13.1"]
 
 [project.scripts]
 isaac-cf-wong = "isaac_cf_wong.cli.main:app"
