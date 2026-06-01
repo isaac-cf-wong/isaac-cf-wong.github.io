@@ -60,6 +60,41 @@ fields.
 - After any edit, run `validate` (below) to confirm the structure is still
   correct.
 
+## Publications sync
+
+`content/publications.yaml` can be kept up to date automatically from
+[INSPIRE-HEP](https://inspirehep.net), anchored on your ORCID iD.
+
+```bash
+uv run isaac-cf-wong publications sync
+```
+
+This resolves your ORCID to your INSPIRE author profile and merges your works
+into `publications.yaml`.
+
+**Curation happens by claiming papers on INSPIRE.** By default the sync lists
+only papers whose authorship you have _claimed_ (curated) on your INSPIRE
+profile — that claim is your "I contributed to this" signal. Claim the
+collaboration papers you want shown and leave the rest unclaimed; unclaiming a
+paper removes it on the next sync. (Run with `--all` to instead fetch every
+paper assigned to your profile, with unclaimed ones written `include: false`.)
+
+The merge is also **curation-preserving** locally:
+
+- Entries are matched by a stable `key` (DOI → arXiv → INSPIRE id). For a match,
+  metadata is refreshed but your `include` and `highlight` choices are kept.
+- Hand-authored entries (no `key`) are never touched or removed.
+- Your name is emphasised in author lists; large-collaboration papers collapse
+  to the collaboration name (e.g. “LIGO Scientific Collaboration … (incl. **C.
+  F. Wong**)”).
+
+Configure it under `publications_sync` in `content/profile.yaml` (`orcid`,
+`author_name`, `claimed_only`).
+
+The `.github/workflows/sync-publications.yml` workflow runs this weekly (and on
+demand) and opens a pull request when anything changes, so you review new papers
+before they go live.
+
 ## Working locally
 
 This project uses [uv](https://docs.astral.sh/uv/).

@@ -117,3 +117,17 @@ profile:
               icon: 'linkedin',
               url: 'https://www.linkedin.com/in/isaac-chun-fung-wong-650b1220a',
           }
+
+# Automated publication sync (used by `isaac-cf-wong publications sync` and the
+# .github/workflows/sync-publications.yml scheduled workflow).
+publications_sync:
+    # Your ORCID iD — used to resolve your INSPIRE author profile.
+    orcid: '0000-0003-2166-0027'
+    # How your name should appear (and be emphasised) in fetched author lists.
+    author_name: 'C. F. Wong'
+    # When true, only papers you have *claimed* on your INSPIRE author profile are
+    # listed. Claiming a paper on INSPIRE is your "I contributed to this" signal:
+    # claim the collaboration papers you want shown, leave the rest unclaimed.
+    # Set to false to fetch every paper assigned to your profile (unclaimed ones
+    # are written with include: false so you can opt them in locally).
+    claimed_only: true

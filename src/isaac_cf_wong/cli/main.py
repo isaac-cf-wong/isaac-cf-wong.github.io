@@ -1,9 +1,10 @@
 """Command-line entry point for building and checking the website.
 
 Commands:
-    build      Render the site from content into the output directory.
-    validate   Check the content files against their JSON Schemas.
-    serve      Build, then serve the output locally with live preview.
+    build               Render the site from content into the output directory.
+    validate            Check the content files against their JSON Schemas.
+    serve               Build, then serve the output locally with live preview.
+    publications sync   Refresh the publication list from INSPIRE-HEP.
 """
 
 from __future__ import annotations
@@ -17,12 +18,16 @@ from pathlib import Path
 import typer
 
 from isaac_cf_wong.site import SitePaths, build_site, validate_content
+from isaac_cf_wong.site.content import load_yaml
+from isaac_cf_wong.site.publications_sync import sync_publications
 from isaac_cf_wong.site.validate import validate_or_raise
 
 app = typer.Typer(
     add_completion=False,
     help="Build and manage the personal website from its content files.",
 )
+publications_app = typer.Typer(add_completion=False, help="Manage the publication list.")
+app.add_typer(publications_app, name="publications")
 
 
 def _paths(root: Path, output: str) -> SitePaths:
@@ -80,6 +85,52 @@ def serve(
             httpd.serve_forever()
         except KeyboardInterrupt:
             typer.secho("\nStopped.", fg=typer.colors.YELLOW)
+
+
+@publications_app.command("sync")
+def publications_sync_command(
+    root: Path = typer.Option(Path.cwd(), help="Project root directory."),
+    orcid: str = typer.Option(None, help="ORCID iD to query (defaults to profile.yaml)."),
+    author_name: str = typer.Option(None, help="How your name should appear, bolded, in author lists."),
+    claimed_only: bool = typer.Option(
+        None,
+        "--claimed-only/--all",
+        help="Only papers you've claimed on INSPIRE (default), or all assigned to your profile.",
+    ),
+) -> None:
+    """Refresh the publication list from INSPIRE-HEP, keyed on your ORCID iD."""
+    paths = _paths(root, "_site")
+    config = (load_yaml(paths.content / "profile.yaml") or {}).get("publications_sync", {})
+    orcid = orcid or config.get("orcid")
+    author_name = author_name or config.get("author_name", "")
+    if claimed_only is None:
+        claimed_only = config.get("claimed_only", True)
+    if not orcid:
+        typer.secho(
+            "No ORCID iD: pass --orcid or set publications_sync.orcid in content/profile.yaml.",
+            fg=typer.colors.RED,
+        )
+        raise typer.Exit(code=1)
+
+    try:
+        summary = sync_publications(
+            paths.content / "publications.yaml",
+            orcid=orcid,
+            author_name=author_name,
+            claimed_only=claimed_only,
+        )
+    except Exception as exc:
+        typer.secho(f"Publication sync failed: {exc}", fg=typer.colors.RED, bold=True)
+        raise typer.Exit(code=1) from exc
+
+    typer.secho(
+        f"Synced from INSPIRE: {len(summary.added)} added "
+        f"({len(summary.added_needs_review)} need review), {summary.updated} updated, "
+        f"{len(summary.removed)} removed.",
+        fg=typer.colors.GREEN,
+    )
+    for title in summary.added_needs_review:
+        typer.secho(f"  needs review (include: false): {title}", fg=typer.colors.YELLOW)
 
 
 if __name__ == "__main__":

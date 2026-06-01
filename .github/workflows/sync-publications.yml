@@ -1,0 +1,48 @@
+name: Sync publications
+
+on:
+    schedule:
+        - cron: '0 6 * * 1' # Mondays at 06:00 UTC
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+concurrency:
+    group: sync-publications
+    cancel-in-progress: true
+
+jobs:
+    sync:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+            - name: Install uv
+              uses: astral-sh/setup-uv@e92bafb6253dcd438e0484186d7669ea7a8ca1cc # v6
+              with:
+                  enable-cache: true
+
+            - name: Sync publications from INSPIRE-HEP
+              run: uv run isaac-cf-wong publications sync
+
+            - name: Open pull request for review
+              uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
+              with:
+                  branch: chore/sync-publications
+                  delete-branch: true
+                  commit-message: 'chore: sync publications from INSPIRE-HEP'
+                  title: 'chore: sync publications from INSPIRE-HEP'
+                  labels: |
+                      publications
+                      automated
+                  body: |
+                      Automated publication sync from INSPIRE-HEP (keyed on your ORCID iD).
+
+                      Lists the papers you have **claimed** on your INSPIRE author profile.
+                      To change what appears here, claim or unclaim papers on INSPIRE; this
+                      sync will reflect that on its next run.
+
+                      Your `include` / `highlight` decisions on existing entries are
+                      preserved across syncs.

@@ -27,6 +27,8 @@ repos:
       hooks:
           - id: typos
             args: []
+            # Generated from INSPIRE-HEP: full of co-author names and domain terms.
+            exclude: '^content/publications\.yaml$'
 
     - repo: https://github.com/rbubley/mirrors-prettier
       rev: v3.8.1

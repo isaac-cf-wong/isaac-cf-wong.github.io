@@ -21,3 +21,8 @@ extend-ignore-re = [
 
 [default.extend-words]
 STADIUS = "STADIUS"
+
+[files]
+# This file is generated from INSPIRE-HEP and is full of co-author names and
+# domain terms that the spell-checker would otherwise flag as typos.
+extend-exclude = ["content/publications.yaml"]
