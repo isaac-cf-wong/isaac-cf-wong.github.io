@@ -1,0 +1,16 @@
+{% from "partials/macros.html" import timeline_item %}
+{% if experience %}
+<section id="experience" class="section">
+  {% if show_title %}<h2 class="section-title">Experience</h2>{% endif %}
+  <ol class="timeline">
+    {% for item in experience %}
+    {{ timeline_item(
+        item.start ~ ' – ' ~ item.end,
+        item.role,
+        item.organization ~ (' · ' ~ item.location if item.location else ''),
+        [item.summary],
+        item.highlights) }}
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

@@ -1,0 +1,14 @@
+{% if awards %}
+<section id="awards" class="section">
+  {% if show_title %}<h2 class="section-title">Awards &amp; Honours</h2>{% endif %}
+  <ul class="plain-list">
+    {% for item in awards %}
+    <li class="plain-item">
+      <span class="plain-main">{{ item.title }}</span>
+      <span class="plain-meta">{{ item.issuer }}{% if item.year %} · {{ item.year }}{% endif %}</span>
+      {% if item.note %}<span class="plain-note">{{ item.note }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

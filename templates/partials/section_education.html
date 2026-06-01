@@ -1,0 +1,18 @@
+{% if education %}
+<section id="education" class="section">
+  {% if show_title %}<h2 class="section-title">Education</h2>{% endif %}
+  <ol class="timeline">
+    {% for item in education %}
+    <li class="timeline-item">
+      <div class="timeline-period">{{ item.start }} – {{ item.end }}</div>
+      <div class="timeline-body">
+        <p class="timeline-role">{{ item.degree }}</p>
+        <p class="timeline-org">{{ item.institution }}{% if item.location %} · {{ item.location }}{% endif %}</p>
+        {% if item.advisor %}<p class="timeline-summary">Advisor: {{ item.advisor }}</p>{% endif %}
+        {% if item.thesis %}<p class="timeline-summary">Thesis: <em>{{ item.thesis }}</em></p>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

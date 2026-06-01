@@ -17,7 +17,13 @@ classifiers = [
   "Programming Language :: Python :: 3.14",
 ]
 requires-python = ">=3.12"
-dependencies = ["typer>=0.24.1"]
+dependencies = [
+  "typer>=0.24.1",
+  "jinja2>=3.1.4",
+  "pyyaml>=6.0.2",
+  "jsonschema>=4.23.0",
+  "markdown>=3.7",
+]
 dynamic = ["version"]
 
 [dependency-groups]
@@ -118,3 +124,6 @@ required-version = ">=0.10.6"
 # ARG001: allow unused function arguments (common in fixtures)
 # PLC0415: allow import statements not at the top level
 # PLR2004: allow magic values in the unit tests
+# Typer reads option/argument defaults from the function signature, so calls in
+# defaults (typer.Option(...), Path.cwd()) are the intended pattern here.
+"src/isaac_cf_wong/cli/*" = ["B008"]

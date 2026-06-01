@@ -1,0 +1,20 @@
+{% from "partials/macros.html" import pub_item %}
+{% if publications %}
+<section id="publications" class="section">
+  {% if show_title %}<h2 class="section-title">{% if s.preview %}Selected Publications{% else %}Publications{% endif %}</h2>{% endif %}
+  {% if s.preview %}
+  <ul class="pub-list">
+    {% for pub in (selected_publications or publications)[:s.preview] %}{{ pub_item(pub) }}{% endfor %}
+  </ul>
+  <p class="more"><a href="/publications/">All publications →</a></p>
+  {% else %}
+  {% if selected_publications %}<p class="muted">★ marks selected work.</p>{% endif %}
+  {% for group in publications_by_year %}
+  <h3 class="year-heading">{{ group.year }}</h3>
+  <ul class="pub-list">
+    {% for pub in group['items'] %}{{ pub_item(pub) }}{% endfor %}
+  </ul>
+  {% endfor %}
+  {% endif %}
+</section>
+{% endif %}

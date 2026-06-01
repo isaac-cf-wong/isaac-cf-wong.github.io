@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "awards.schema.json",
+    "title": "Awards",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["title", "issuer", "year"],
+                "additionalProperties": false,
+                "properties": {
+                    "title": { "type": "string", "minLength": 1 },
+                    "issuer": { "type": "string" },
+                    "year": {
+                        "type": "integer",
+                        "minimum": 1900,
+                        "maximum": 2100
+                    },
+                    "note": { "type": "string" }
+                }
+            }
+        }
+    }
+}

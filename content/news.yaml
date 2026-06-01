@@ -1,0 +1,15 @@
+# News and announcements, shown newest-first on the site.
+# `date` must be ISO format (YYYY-MM-DD). `body` supports Markdown.
+# Validated against schemas/news.schema.json.
+
+items:
+    - date: '2026-05-01'
+      body: 'Paper *“A Placeholder Title”* accepted at **Conference 2026**.'
+    - date: '2026-03-15'
+      body: 'Gave an invited talk at the Example Seminar Series.'
+    - date: '2026-01-10'
+      body: 'Started as a research intern at Example Lab.'
+    - date: '2025-11-01'
+      body:
+          'Released [an open-source tool](https://github.com/username/project)
+          for placeholder task.'

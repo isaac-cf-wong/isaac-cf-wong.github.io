@@ -1,0 +1,13 @@
+{% if talks %}
+<section id="talks" class="section">
+  {% if show_title %}<h2 class="section-title">Talks</h2>{% endif %}
+  <ul class="plain-list">
+    {% for item in talks %}
+    <li class="plain-item">
+      <span class="plain-main">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</span>
+      <span class="plain-meta">{{ item.event }}{% if item.location %} · {{ item.location }}{% endif %} · {{ item.date }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

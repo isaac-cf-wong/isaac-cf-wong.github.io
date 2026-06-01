@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "publications.schema.json",
+    "title": "Publications",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["title", "authors", "venue", "year"],
+                "additionalProperties": false,
+                "properties": {
+                    "title": { "type": "string", "minLength": 1 },
+                    "authors": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "minItems": 1
+                    },
+                    "venue": { "type": "string" },
+                    "year": {
+                        "type": "integer",
+                        "minimum": 1900,
+                        "maximum": 2100
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "conference",
+                            "journal",
+                            "workshop",
+                            "preprint",
+                            "thesis",
+                            "book",
+                            "chapter",
+                            "other"
+                        ]
+                    },
+                    "highlight": { "type": "boolean" },
+                    "abstract": { "type": "string" },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["label", "url"],
+                            "additionalProperties": false,
+                            "properties": {
+                                "label": { "type": "string" },
+                                "url": { "type": "string" }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+# Professional and research experience, shown newest-first.
+# Use "Present" for `end` if the position is ongoing.
+# Validated against schemas/experience.schema.json.
+
+items:
+    - role: 'Research Intern'
+      organization: 'Example Lab'
+      location: 'Remote'
+      start: '2026-01'
+      end: '2026-04'
+      summary:
+          'Worked on a placeholder research problem; contributed to a prototype
+          system.'
+      highlights:
+          - 'Designed and implemented a placeholder component.'
+          - 'Co-authored an internal report on placeholder findings.'
+
+    - role: 'Graduate Research Assistant'
+      organization: 'Example University'
+      location: 'Cambridge, UK'
+      start: '2023-09'
+      end: 'Present'
+      summary:
+          'Conducting doctoral research on a placeholder topic under Prof.
+          Placeholder.'
+      highlights:
+          - 'Published placeholder results at a peer-reviewed venue.'
+          - 'Mentored two undergraduate students.'
+
+    - role: 'Teaching Assistant'
+      organization: 'Example University'
+      location: 'Cambridge, UK'
+      start: '2022-09'
+      end: '2023-06'
+      summary: 'Supported undergraduate courses in placeholder subjects.'
+      highlights: []

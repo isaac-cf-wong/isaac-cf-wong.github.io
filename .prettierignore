@@ -1,0 +1,4 @@
+# Jinja2 templates: Prettier's HTML parser cannot safely format the templating
+# syntax (e.g. {% if a == b %} inside tags) and will corrupt it. Leave them to
+# be hand-authored.
+templates/

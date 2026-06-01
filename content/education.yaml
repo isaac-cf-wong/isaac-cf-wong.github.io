@@ -1,0 +1,27 @@
+# Education history, shown newest-first.
+# Validated against schemas/education.schema.json.
+
+items:
+    - degree: 'PhD in Computer Science'
+      institution: 'Example University'
+      location: 'Cambridge, UK'
+      start: '2023'
+      end: 'Present'
+      advisor: 'Prof. Placeholder Name'
+      thesis: 'A Placeholder Thesis Title (in progress)'
+
+    - degree: 'MSc in Computer Science'
+      institution: 'Another University'
+      location: 'London, UK'
+      start: '2021'
+      end: '2022'
+      advisor: 'Prof. Another Name'
+      thesis: "A Placeholder Master's Thesis Title"
+
+    - degree: 'BSc in Mathematics'
+      institution: 'Some University'
+      location: 'Manchester, UK'
+      start: '2018'
+      end: '2021'
+      advisor: ''
+      thesis: ''

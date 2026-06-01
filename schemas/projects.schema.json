@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "projects.schema.json",
+    "title": "Projects",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["name", "summary"],
+                "additionalProperties": false,
+                "properties": {
+                    "name": { "type": "string", "minLength": 1 },
+                    "summary": { "type": "string" },
+                    "tags": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["label", "url"],
+                            "additionalProperties": false,
+                            "properties": {
+                                "label": { "type": "string" },
+                                "url": { "type": "string" }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

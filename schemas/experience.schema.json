@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "experience.schema.json",
+    "title": "Experience",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["role", "organization", "start", "end"],
+                "additionalProperties": false,
+                "properties": {
+                    "role": { "type": "string", "minLength": 1 },
+                    "organization": { "type": "string", "minLength": 1 },
+                    "location": { "type": "string" },
+                    "start": { "type": "string" },
+                    "end": { "type": "string" },
+                    "summary": { "type": "string" },
+                    "highlights": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    }
+                }
+            }
+        }
+    }
+}
