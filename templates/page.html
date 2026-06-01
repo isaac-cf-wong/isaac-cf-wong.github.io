@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% set is_home = not page.slug %}
+{% if not is_home %}
+<header class="page-header">
+  <h1 class="page-title">{{ page.title }}</h1>
+</header>
+{% endif %}
+{# A section shows its own heading on the home page or when a page stacks
+   several sections; a single-section page uses the page title instead.       #}
+{% set show_title = is_home or page.sections | length > 1 %}
+{% for s in page.sections %}
+{% include "partials/section_" ~ s.name ~ ".html" %}
+{% endfor %}
+{% endblock %}

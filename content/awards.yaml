@@ -1,0 +1,19 @@
+# Awards, honours, grants, and fellowships, shown newest-first by `year`.
+# Validated against schemas/awards.schema.json.
+
+items:
+    - title: 'Placeholder Excellence Scholarship'
+      issuer: 'Example University'
+      year: 2025
+      note:
+          'Awarded to placeholder number of students for outstanding research.'
+
+    - title: 'Best Paper Award (Honourable Mention)'
+      issuer: 'Workshop on Example Methods'
+      year: 2024
+      note: ''
+
+    - title: 'Placeholder Travel Grant'
+      issuer: 'Example Foundation'
+      year: 2023
+      note: ''

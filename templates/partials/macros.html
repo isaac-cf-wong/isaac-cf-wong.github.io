@@ -1,0 +1,32 @@
+{# Reusable rendering macros shared across section partials. #}
+
+{% macro pub_item(pub) %}
+<li class="pub{% if pub.highlight %} pub-highlight{% endif %}">
+  {% if pub.highlight %}<span class="star" aria-label="Selected">★</span>{% endif %}
+  <p class="pub-title">{{ pub.title }}</p>
+  <p class="pub-authors">{% for author in pub.authors %}{{ author | markdown_inline }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+  <p class="pub-venue">{{ pub.venue }}{% if pub.type %} <span class="pub-type">{{ pub.type }}</span>{% endif %}</p>
+  {% if pub.abstract %}<p class="pub-abstract">{{ pub.abstract }}</p>{% endif %}
+  {% if pub.links %}
+  <p class="pub-links">
+    {% for link in pub.links %}<a href="{{ link.url }}"{% if link.url != '#' %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>{% endfor %}
+  </p>
+  {% endif %}
+</li>
+{% endmacro %}
+
+{% macro timeline_item(period, role, org, lines, bullets) %}
+<li class="timeline-item">
+  <div class="timeline-period">{{ period }}</div>
+  <div class="timeline-body">
+    <p class="timeline-role">{{ role }}</p>
+    <p class="timeline-org">{{ org }}</p>
+    {% for line in lines if line %}<p class="timeline-summary">{{ line | safe }}</p>{% endfor %}
+    {% if bullets %}
+    <ul class="bullets">
+      {% for bullet in bullets %}<li>{{ bullet }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</li>
+{% endmacro %}

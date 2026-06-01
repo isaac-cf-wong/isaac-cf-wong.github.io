@@ -1,0 +1,19 @@
+# Research projects and software, shown in listed order.
+# `links` is a list of {label, url}. `tags` is a list of short keywords.
+# Validated against schemas/projects.schema.json.
+
+items:
+    - name: 'Placeholder Project One'
+      summary:
+          'A short description of what this project does and why it matters.'
+      tags: ['topic-a', 'topic-b']
+      links:
+          - { label: 'Code', url: 'https://github.com/username/project-one' }
+          - { label: 'Website', url: 'https://example.com/project-one' }
+
+    - name: 'Placeholder Project Two'
+      summary:
+          'Another short description of a project, tool, or dataset you built.'
+      tags: ['open-source', 'tooling']
+      links:
+          - { label: 'Code', url: 'https://github.com/username/project-two' }

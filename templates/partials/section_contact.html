@@ -1,0 +1,6 @@
+<section id="contact" class="section">
+  {% if show_title %}<h2 class="section-title">Contact</h2>{% endif %}
+  <p>The best way to reach me is by email at
+    <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>.</p>
+  {% if profile.affiliation %}<p class="muted">{{ profile.affiliation }}{% if profile.location %} · {{ profile.location }}{% endif %}</p>{% endif %}
+</section>

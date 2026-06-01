@@ -1,0 +1,23 @@
+{% if projects %}
+<section id="projects" class="section">
+  {% if show_title %}<h2 class="section-title">Projects</h2>{% endif %}
+  <div class="cards">
+    {% for item in projects %}
+    <article class="card">
+      <h3 class="card-title">{{ item.name }}</h3>
+      <p class="card-summary">{{ item.summary }}</p>
+      {% if item.tags %}
+      <ul class="tags small">
+        {% for tag in item.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      {% if item.links %}
+      <p class="card-links">
+        {% for link in item.links %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>{% endfor %}
+      </p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,17 @@
+{% if news %}
+{% set rows = news[:s.preview] if s.preview else news %}
+<section id="news" class="section">
+  {% if show_title %}<h2 class="section-title">News</h2>{% endif %}
+  <ul class="news-list">
+    {% for item in rows %}
+    <li class="news-item">
+      <time class="news-date" datetime="{{ item.date }}">{{ item.date }}</time>
+      <span class="news-body">{{ item.body | markdown_inline }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if s.preview and news | length > s.preview %}
+  <p class="more"><a href="/news/">All news →</a></p>
+  {% endif %}
+</section>
+{% endif %}

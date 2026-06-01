@@ -1,0 +1,114 @@
+# Profile and site-wide configuration — the primary source of truth for the site.
+# Every field below is rendered somewhere on the site. Edit values in place;
+# keep the structure (keys and nesting) intact. This file is validated against
+# schemas/profile.schema.json.
+
+site:
+    # The full URL where the site is published (used for canonical links and metadata).
+    url: 'https://username.github.io'
+    # Browser tab title and the name used in metadata.
+    title: 'Jane Doe'
+    tagline: 'PhD Candidate in Computer Science'
+    description:
+        'Personal academic website of Jane Doe — research, publications, and
+        teaching.'
+    language: 'en'
+    # Accent colour used across the site (any valid CSS colour).
+    accent: '#2563eb'
+    # Pages of the site. Each entry becomes its own page at a clean URL:
+    #   slug ""          -> "/"            (the home page)
+    #   slug "news"      -> "/news/"
+    # `nav: true` shows the page in the navigation bar (in this order).
+    # `sections` lists the content blocks rendered on the page, top to bottom.
+    # A block is either a plain name, or {name: <block>, preview: N} to show only
+    # the N most recent items with a link through to the block's full page.
+    # Available blocks: about, news, publications, experience, education,
+    # projects, teaching, awards, talks, contact.
+    pages:
+        - slug: ''
+          label: 'Home'
+          nav: true
+          sections:
+              - 'about'
+              - { name: 'news', preview: 3 }
+              - { name: 'publications', preview: 3 }
+        - slug: 'publications'
+          label: 'Publications'
+          nav: true
+          sections: ['publications']
+        - slug: 'cv'
+          label: 'CV'
+          nav: true
+          sections: ['experience', 'education', 'awards']
+        - slug: 'projects'
+          label: 'Projects'
+          nav: true
+          sections: ['projects']
+        - slug: 'teaching'
+          label: 'Teaching'
+          nav: true
+          sections: ['teaching']
+        - slug: 'talks'
+          label: 'Talks'
+          nav: true
+          sections: ['talks']
+        - slug: 'news'
+          label: 'News'
+          nav: true
+          sections: ['news']
+        - slug: 'contact'
+          label: 'Contact'
+          nav: true
+          sections: ['contact']
+
+profile:
+    name: 'Jane Doe'
+    pronouns: 'she/her'
+    # Short role shown under the name, e.g. "PhD Candidate", "Assistant Professor".
+    title: 'PhD Candidate'
+    affiliation: 'Department of Computer Science, Example University'
+    location: 'Cambridge, United Kingdom'
+    # Site-root path to a profile photo (SVG, PNG, or JPG) under assets/.
+    photo: '/assets/img/profile.svg'
+    email: 'jane.doe@example.edu'
+    # Site-root path to a CV file to link from the site. Leave empty ("") to hide it.
+    cv: '/assets/cv.pdf'
+    # A short biography. Markdown is supported (links, emphasis, lists).
+    bio: |
+        I am a PhD candidate at **Example University**, where I study _placeholder
+        research area_. My work focuses on bridging the gap between A and B, with an
+        emphasis on rigorous, reproducible methods.
+
+        Before my doctorate, I completed my undergraduate studies at Another
+        University. I am broadly interested in the topics listed below and am always
+        happy to discuss new collaborations.
+    research_interests:
+        - 'Research interest one'
+        - 'Research interest two'
+        - 'Research interest three'
+        - 'Research interest four'
+    # Social and academic profile links. `icon` must match a key in the icon set
+    # (see templates/partials/icons.html): scholar, orcid, github, linkedin,
+    # twitter, mastodon, bluesky, email, cv, arxiv, researchgate, semantic-scholar.
+    social:
+        - { label: 'Email', icon: 'email', url: 'mailto:jane.doe@example.edu' }
+        - {
+              label: 'Google Scholar',
+              icon: 'scholar',
+              url: 'https://scholar.google.com/citations?user=PLACEHOLDER',
+          }
+        - {
+              label: 'ORCID',
+              icon: 'orcid',
+              url: 'https://orcid.org/0000-0000-0000-0000',
+          }
+        - {
+              label: 'GitHub',
+              icon: 'github',
+              url: 'https://github.com/username',
+          }
+        - {
+              label: 'LinkedIn',
+              icon: 'linkedin',
+              url: 'https://www.linkedin.com/in/username',
+          }

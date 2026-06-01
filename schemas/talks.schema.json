@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "talks.schema.json",
+    "title": "Talks",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["title", "event", "date"],
+                "additionalProperties": false,
+                "properties": {
+                    "title": { "type": "string", "minLength": 1 },
+                    "event": { "type": "string" },
+                    "location": { "type": "string" },
+                    "date": { "type": "string", "format": "date" },
+                    "url": { "type": "string" }
+                }
+            }
+        }
+    }
+}

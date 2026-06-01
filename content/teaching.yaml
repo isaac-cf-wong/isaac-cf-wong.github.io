@@ -1,0 +1,15 @@
+# Teaching experience, shown newest-first by `term`.
+# Validated against schemas/teaching.schema.json.
+
+items:
+    - course: 'Introduction to Placeholder Topic (CS101)'
+      role: 'Teaching Assistant'
+      institution: 'Example University'
+      term: 'Spring 2025'
+      url: ''
+
+    - course: 'Advanced Placeholder Methods (CS402)'
+      role: 'Teaching Assistant'
+      institution: 'Example University'
+      term: 'Autumn 2024'
+      url: ''

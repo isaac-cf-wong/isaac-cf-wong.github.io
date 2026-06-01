@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ site.language | default('en') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% set page_url = site.url ~ ('/' if not page.slug else '/' ~ page.slug ~ '/') %}
+  <title>{% if page.slug %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% if site.tagline %} — {{ site.tagline }}{% endif %}{% endif %}</title>
+  <meta name="description" content="{{ site.description | default('') }}">
+  <meta name="author" content="{{ profile.name }}">
+  <link rel="canonical" href="{{ page_url }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{% if page.slug %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ site.description | default('') }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <style>:root { --accent: {{ site.accent | default('#2563eb') }}; }</style>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/">{{ profile.name }}</a>
+      <nav class="nav-links" aria-label="Primary">
+        {% for item in nav_pages %}
+        {% set href = '/' if not item.slug else '/' ~ item.slug ~ '/' %}
+        {% if item.slug == page.slug %}
+        <a href="{{ href }}" class="active" aria-current="page">{{ item.label }}</a>
+        {% else %}
+        <a href="{{ href }}">{{ item.label }}</a>
+        {% endif %}
+        {% endfor %}
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> {{ profile.name }}. Built from structured content.</p>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

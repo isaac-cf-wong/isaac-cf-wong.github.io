@@ -1,0 +1,37 @@
+# Publications, grouped and rendered newest-first by `year`.
+# Set `highlight: true` to mark a selected/representative paper.
+# `links` is a list of {label, url}. `authors` is a list; wrap your own name
+# in **double asterisks** to have it emphasised automatically.
+# Validated against schemas/publications.schema.json.
+
+items:
+    - title: 'A Placeholder Title for a Representative Paper'
+      authors: ['**Jane Doe**', 'John Smith', 'Alice Johnson']
+      venue: 'Proceedings of the Example Conference (CONF)'
+      year: 2026
+      type: 'conference'
+      highlight: true
+      abstract: 'A one or two sentence summary of the contribution goes here.'
+      links:
+          - { label: 'PDF', url: 'https://example.com/paper.pdf' }
+          - { label: 'arXiv', url: 'https://arxiv.org/abs/0000.00000' }
+          - { label: 'Code', url: 'https://github.com/username/project' }
+          - { label: 'BibTeX', url: '#' }
+
+    - title: 'Another Placeholder Paper on a Related Topic'
+      authors: ['Alice Johnson', '**Jane Doe**']
+      venue: 'Journal of Example Studies, 12(3)'
+      year: 2025
+      type: 'journal'
+      highlight: true
+      links:
+          - { label: 'DOI', url: 'https://doi.org/10.0000/placeholder' }
+
+    - title: 'An Earlier Workshop Contribution'
+      authors: ['**Jane Doe**', 'Bob Lee']
+      venue: 'Workshop on Example Methods (WEM)'
+      year: 2024
+      type: 'workshop'
+      highlight: false
+      links:
+          - { label: 'PDF', url: 'https://example.com/workshop.pdf' }

@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "news.schema.json",
+    "title": "News items",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["date", "body"],
+                "additionalProperties": false,
+                "properties": {
+                    "date": { "type": "string", "format": "date" },
+                    "body": { "type": "string", "minLength": 1 }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{% from "partials/icons.html" import icon %}
+<section id="about" class="hero">
+  <div class="hero-media">
+    <img class="avatar" src="{{ profile.photo }}" alt="Portrait of {{ profile.name }}" loading="lazy">
+  </div>
+  <div class="hero-body">
+    <h1 class="name">{{ profile.name }}{% if profile.pronouns %} <span class="pronouns">({{ profile.pronouns }})</span>{% endif %}</h1>
+    <p class="role">{{ profile.title }}</p>
+    {% if profile.affiliation %}<p class="affiliation">{{ profile.affiliation }}</p>{% endif %}
+    {% if profile.location %}<p class="location">{{ profile.location }}</p>{% endif %}
+    <div class="bio">{{ profile.bio | markdown }}</div>
+    {% if profile.research_interests %}
+    <ul class="tags">
+      {% for interest in profile.research_interests %}<li class="tag">{{ interest }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    <div class="social">
+      {% for link in profile.social %}
+      {% if link.url.startswith('mailto:') %}
+      <a class="social-link" href="{{ link.url }}" title="{{ link.label }}" aria-label="{{ link.label }}">{{ icon(link.icon) }}<span>{{ link.label }}</span></a>
+      {% else %}
+      <a class="social-link" href="{{ link.url }}" title="{{ link.label }}" aria-label="{{ link.label }}" target="_blank" rel="me noopener">{{ icon(link.icon) }}<span>{{ link.label }}</span></a>
+      {% endif %}
+      {% endfor %}
+      {% if profile.cv %}
+      <a class="social-link cv" href="{{ profile.cv }}" title="Curriculum Vitae">{{ icon("cv") }}<span>CV</span></a>
+      {% endif %}
+    </div>
+  </div>
+</section>

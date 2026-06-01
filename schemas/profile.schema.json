@@ -1,0 +1,119 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "profile.schema.json",
+    "title": "Profile and site configuration",
+    "type": "object",
+    "required": ["site", "profile"],
+    "additionalProperties": false,
+    "properties": {
+        "site": {
+            "type": "object",
+            "required": ["url", "title", "pages"],
+            "additionalProperties": false,
+            "properties": {
+                "url": { "type": "string", "format": "uri" },
+                "title": { "type": "string", "minLength": 1 },
+                "tagline": { "type": "string" },
+                "description": { "type": "string" },
+                "language": { "type": "string" },
+                "accent": { "type": "string" },
+                "pages": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "required": ["slug", "label", "sections"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "slug": { "type": "string" },
+                            "label": { "type": "string", "minLength": 1 },
+                            "title": { "type": "string" },
+                            "nav": { "type": "boolean" },
+                            "sections": {
+                                "type": "array",
+                                "items": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "about",
+                                                "news",
+                                                "publications",
+                                                "experience",
+                                                "education",
+                                                "projects",
+                                                "teaching",
+                                                "awards",
+                                                "talks",
+                                                "contact"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "required": ["name"],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "about",
+                                                        "news",
+                                                        "publications",
+                                                        "experience",
+                                                        "education",
+                                                        "projects",
+                                                        "teaching",
+                                                        "awards",
+                                                        "talks",
+                                                        "contact"
+                                                    ]
+                                                },
+                                                "preview": {
+                                                    "type": "integer",
+                                                    "minimum": 1
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "profile": {
+            "type": "object",
+            "required": ["name", "title", "affiliation", "email"],
+            "additionalProperties": false,
+            "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "pronouns": { "type": "string" },
+                "title": { "type": "string" },
+                "affiliation": { "type": "string" },
+                "location": { "type": "string" },
+                "photo": { "type": "string" },
+                "email": { "type": "string" },
+                "cv": { "type": "string" },
+                "bio": { "type": "string" },
+                "research_interests": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "social": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["label", "icon", "url"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "label": { "type": "string" },
+                            "icon": { "type": "string" },
+                            "url": { "type": "string" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
