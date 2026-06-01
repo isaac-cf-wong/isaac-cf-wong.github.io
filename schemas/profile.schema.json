@@ -88,7 +88,6 @@
             "additionalProperties": false,
             "properties": {
                 "name": { "type": "string", "minLength": 1 },
-                "pronouns": { "type": "string" },
                 "title": { "type": "string" },
                 "affiliation": { "type": "string" },
                 "location": { "type": "string" },

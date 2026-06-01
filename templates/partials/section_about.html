@@ -4,7 +4,7 @@
     <img class="avatar" src="{{ profile.photo }}" alt="Portrait of {{ profile.name }}" loading="lazy">
   </div>
   <div class="hero-body">
-    <h1 class="name">{{ profile.name }}{% if profile.pronouns %} <span class="pronouns">({{ profile.pronouns }})</span>{% endif %}</h1>
+    <h1 class="name">{{ profile.name }}</h1>
     <p class="role">{{ profile.title }}</p>
     {% if profile.affiliation %}<p class="affiliation">{{ profile.affiliation }}</p>{% endif %}
     {% if profile.location %}<p class="location">{{ profile.location }}</p>{% endif %}

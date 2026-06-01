@@ -40,10 +40,13 @@ def test_build_produces_site(tmp_path: pytest.TempPathFactory) -> None:
 
 
 def test_build_emits_a_page_per_configured_slug(tmp_path: pytest.TempPathFactory) -> None:
-    """Each non-home page is written to its own clean URL directory."""
+    """Every page declared in the profile config is written to its own URL."""
     output = Path(tmp_path) / "_site"
     paths = SitePaths(root=ROOT, output_dir=str(output))
     result = build_site(paths)
 
-    for slug in ("publications", "cv", "projects", "teaching", "talks", "news", "contact"):
-        assert (result / slug / "index.html").exists(), f"missing page for /{slug}/"
+    slugs = [page["slug"] for page in load_content(paths.content)["profile"]["site"]["pages"]]
+    assert slugs, "no pages configured"
+    for slug in slugs:
+        expected = result / "index.html" if not slug else result / slug / "index.html"
+        assert expected.exists(), f"missing page for slug '{slug}'"
