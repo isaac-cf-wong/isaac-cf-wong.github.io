@@ -179,11 +179,6 @@ main > .section:first-child {
     margin: 0 0 0.2rem;
     letter-spacing: -0.02em;
 }
-.pronouns {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--muted);
-}
 .role {
     font-size: 1.15rem;
     margin: 0.1rem 0;
