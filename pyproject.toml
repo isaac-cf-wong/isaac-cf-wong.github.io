@@ -1,0 +1,120 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "isaac-cf-wong"
+authors = [{ name = "Isaac C. F. Wong" }]
+description = "Isaac C. F. Wong's personal website"
+readme = "README.md"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+requires-python = ">=3.12"
+dependencies = ["typer>=0.24.1"]
+dynamic = ["version"]
+
+[dependency-groups]
+dev = [
+  "ruff>=0.15.11",
+  "prek>=0.3.13",
+  "pytest-github-actions-annotate-failures>=0.4.0",
+  "pytest-cov>=7.1.0",
+  "pytest-mock>=3.15.1",
+  "pytest>=9.0.3",
+]
+docs = ["zensical>=0.0.33", "mkdocstrings-python>=2.0.3"]
+build = ["hatch>=1.16.5"]
+release = ["git-cliff>=2.12.0"]
+
+[project.scripts]
+isaac-cf-wong = "isaac_cf_wong.cli.main:app"
+
+[project.urls]
+Documentation = "https://isaac-cf-wong.github.io"
+Source = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io"
+Tracker = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io/issues"
+Home = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io"
+"Release Notes" = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io/releases"
+
+[tool.uv-dynamic-versioning]
+vcs = "git"      # default
+style = "semver" # or pep440, semver, etc.
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/isaac_cf_wong"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+fail_under = 0
+
+[tool.pytest.ini_options]
+addopts = "--cov-report xml:coverage.xml --cov src --cov-append -m 'not integration'"
+pythonpath = ["src"]
+testpaths = "tests"
+junit_family = "xunit2"
+markers = [
+  "integration: marks as integration test",
+  "notebooks: marks as notebook test",
+  "gpu: marks as gpu test",
+  "spark: marks tests which need Spark",
+  "slow: marks tests as slow",
+  "unit: fast offline tests",
+]
+
+[tool.ruff]
+line-length = 120 # Matches Black's default
+target-version = "py310" # Align with CI (3.10–3.12) and requires-python (>=3.10)
+lint.extend-select = [
+  "E",
+  "F",
+  "W",   # pycodestyle errors and warnings
+  "I",   # isort rules
+  "UP",  # pyupgrade rules
+  "C90", # McCabe complexity
+  "N",   # PEP8 naming
+  "B",   # Bugbear (opinionated checks)
+  "A",   # Flake8-builtins
+  "C4",  # Flake8-comprehensions
+  "PT",  # Flake8-pytest
+  "RUF", # Ruff-specific rules
+  "PL",  # Add pylint rules for fuller coverage
+  "SIM", # Similarities
+  "T10", # Debugger statements
+  "DOC", # Docstring
+  "D",   # Doc style
+  "S",   # Security
+]
+lint.ignore = [
+  "E501", # Line length (handled by formatter)
+  "C901", # Disable overly strict complexity checks (optional, adjust as needed)
+]
+lint.unfixable = [] # List rules that should not be autofixed, if any
+fix = true # Enable autofix
+
+[tool.ruff.format]
+quote-style = "double"       # Use double quotes for strings
+indent-style = "space"       # Use spaces for indentation
+docstring-code-format = true # Format code in docstrings
+
+[tool.uv]
+required-version = ">=0.10.6"
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore specific rules in the tests directory
+"tests/*" = ["S101", "ARG001", "PLC0415", "PLR2004"]
+# S101: allow assert statements
+# ARG001: allow unused function arguments (common in fixtures)
+# PLC0415: allow import statements not at the top level
+# PLR2004: allow magic values in the unit tests
