@@ -2,15 +2,4 @@
 # `date` must be ISO format (YYYY-MM-DD). `url` may link to slides or a recording.
 # Validated against schemas/talks.schema.json.
 
-items:
-    - title: 'A Placeholder Talk Title'
-      event: 'Example Seminar Series'
-      location: 'Example University'
-      date: '2026-03-15'
-      url: ''
-
-    - title: 'Another Placeholder Presentation'
-      event: 'CONF 2025 Main Track'
-      location: 'Berlin, Germany'
-      date: '2025-07-20'
-      url: 'https://example.com/slides.pdf'
+items: null
