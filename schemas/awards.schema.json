@@ -7,7 +7,7 @@
     "additionalProperties": false,
     "properties": {
         "items": {
-            "type": "array",
+            "type": ["array", "null"],
             "items": {
                 "type": "object",
                 "required": ["title", "issuer", "year"],
