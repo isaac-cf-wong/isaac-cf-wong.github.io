@@ -1,0 +1,44 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "software.schema.json",
+    "title": "Software",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "$defs": {
+        "links": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["label", "url"],
+                "additionalProperties": false,
+                "properties": {
+                    "label": { "type": "string" },
+                    "url": { "type": "string" }
+                }
+            }
+        }
+    },
+    "properties": {
+        "items": {
+            "type": ["array", "null"],
+            "items": {
+                "type": "object",
+                "required": ["name", "category"],
+                "additionalProperties": false,
+                "properties": {
+                    "name": { "type": "string", "minLength": 1 },
+                    "category": { "type": "string", "minLength": 1 },
+                    "summary": { "type": "string" },
+                    "role": { "type": "string" },
+                    "license": { "type": "string" },
+                    "tags": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    },
+                    "links": { "$ref": "#/$defs/links" }
+                }
+            }
+        }
+    }
+}

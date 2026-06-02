@@ -59,6 +59,25 @@ def _items(content: dict[str, Any], key: str) -> list[dict[str, Any]]:
     return list(section.get("items") or [])
 
 
+def _group_software(content: dict[str, Any]) -> list[dict[str, Any]]:
+    """Group software items by ``category``, preserving first-appearance order.
+
+    Returns a list of ``{"category": str, "items": [...]}`` so the template can
+    render each category under its own heading.
+    """
+    groups: list[dict[str, Any]] = []
+    index: dict[str, dict[str, Any]] = {}
+    for item in _items(content, "software"):
+        category = item.get("category", "")
+        group = index.get(category)
+        if group is None:
+            group = {"category": category, "items": []}
+            index[category] = group
+            groups.append(group)
+        group["items"].append(item)
+    return groups
+
+
 def _resolve_publications(
     keys: list[str] | None, pub_by_key: dict[str, dict[str, Any]], *, owner: str
 ) -> list[dict[str, Any]]:
@@ -168,6 +187,7 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
         "education": _items(content, "education"),
         "projects": projects,
         "teaching": _items(content, "teaching"),
+        "software": _group_software(content),
     }
 
 

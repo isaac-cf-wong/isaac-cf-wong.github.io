@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
+from jsonschema import Draft202012Validator
 
 from isaac_cf_wong.site import SitePaths, build_site, load_content, validate_content
-from isaac_cf_wong.site.builder import _resolve_project_publications
+from isaac_cf_wong.site.builder import _group_software, _resolve_project_publications
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -96,3 +98,41 @@ def test_resolve_topic_publications_rejects_unknown_key() -> None:
     """An unknown key inside a topic fails the build and names the offending topic."""
     with pytest.raises(ValueError, match=r"topic 'T'.*unknown publication key"):
         _resolve_project_publications([{"name": "P", "topics": [{"name": "T", "publications": ["missing"]}]}], {})
+
+
+def test_group_software_groups_by_category_in_first_seen_order() -> None:
+    """Software items group by category, and categories keep first-appearance order."""
+    content = {
+        "software": {
+            "items": [
+                {"name": "a", "category": "Packages"},
+                {"name": "b", "category": "Templates"},
+                {"name": "c", "category": "Packages"},
+            ]
+        }
+    }
+
+    groups = _group_software(content)
+
+    assert [g["category"] for g in groups] == ["Packages", "Templates"]
+    assert [i["name"] for i in groups[0]["items"]] == ["a", "c"]
+    assert [i["name"] for i in groups[1]["items"]] == ["b"]
+
+
+def test_group_software_empty_when_null() -> None:
+    """A null/absent software list yields no groups (section stays hidden)."""
+    assert _group_software({"software": {"items": None}}) == []
+    assert _group_software({}) == []
+
+
+def test_software_schema_supports_optional_license() -> None:
+    """The software schema accepts an optional `license` and still rejects typos."""
+    paths = SitePaths(root=ROOT)
+    schema = json.loads((paths.schemas / "software.schema.json").read_text(encoding="utf-8"))
+    validator = Draft202012Validator(schema)
+
+    valid = {"items": [{"name": "x", "category": "packages", "license": "MIT"}]}
+    typo = {"items": [{"name": "x", "category": "packages", "licence": "MIT"}]}
+
+    assert list(validator.iter_errors(valid)) == []
+    assert list(validator.iter_errors(typo)), "misspelled 'licence' key should be rejected"
