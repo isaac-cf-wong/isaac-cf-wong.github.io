@@ -3,34 +3,49 @@
 # Validated against schemas/experience.schema.json.
 
 items:
-    - role: 'Research Intern'
-      organization: 'Example Lab'
-      location: 'Remote'
-      start: '2026-01'
-      end: '2026-04'
-      summary:
-          'Worked on a placeholder research problem; contributed to a prototype
-          system.'
-      highlights:
-          - 'Designed and implemented a placeholder component.'
-          - 'Co-authored an internal report on placeholder findings.'
-
-    - role: 'Graduate Research Assistant'
-      organization: 'Example University'
-      location: 'Cambridge, UK'
-      start: '2023-09'
+    - role: 'Postdoctoral Researcher'
+      organization: 'KU Leuven'
+      location: 'Leuven, Belgium'
+      start: '2024-02'
       end: 'Present'
       summary:
-          'Conducting doctoral research on a placeholder topic under Prof.
-          Placeholder.'
+          'Working on the Einstein Telescope geometry design problems, Newtonian
+          noise characterization, and simulation-based inference for
+          core-collapse supernova gravitational-wave signals.'
       highlights:
-          - 'Published placeholder results at a peer-reviewed venue.'
-          - 'Mentored two undergraduate students.'
+          - 'Contributed to the polarization analysis in GWTC-4.0 testing
+            general relativity paper.'
+          - 'Contributed to likelihood formulations for correlated detector
+            noise in future gravitational-wave observatories.'
+          - 'Worked on null-stream methods for detector characterization and
+            calibration in the Einstein Telescope.'
+          - 'Contributed to open-source scientific software and reproducible
+            research workflows.'
 
-    - role: 'Teaching Assistant'
-      organization: 'Example University'
-      location: 'Cambridge, UK'
-      start: '2022-09'
-      end: '2023-06'
-      summary: 'Supported undergraduate courses in placeholder subjects.'
-      highlights: []
+    - role: 'Junior Research Assistant'
+      organization: 'The Chinese University of Hong Kong'
+      location: 'Hong Kong, China'
+      start: '2023-08'
+      end: '2024-01'
+      summary: 'Worked on the noise correlation problems in Einstein Telescope.'
+      highlights:
+          - 'Contributed to early-stage research projects later developed into
+            peer-reviewed publications.'
+
+    - role: 'PhD Researcher'
+      organization: 'The Chinese University of Hong Kong'
+      location: 'Hong Kong, China'
+      start: '2018-08'
+      end: '2023-07'
+      summary:
+          'Conducted research in gravitational-wave astronomy, Bayesian
+          inference, and detector data analysis during doctoral studies.'
+      highlights:
+          - 'Worked on gravitational-wave parameter estimation and detector
+            noise characterization.'
+          - 'Developed statistical methods for testing gravitational-wave
+            polarizations.'
+          - 'Performed analyses using real data from the LIGO-Virgo-KAGRA
+            collaborations.'
+          - 'Built computational pipelines for unmodeled searches of extra
+            gravitational-wave polarizations.'
