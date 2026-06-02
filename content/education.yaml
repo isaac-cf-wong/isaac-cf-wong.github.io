@@ -2,26 +2,21 @@
 # Validated against schemas/education.schema.json.
 
 items:
-    - degree: 'PhD in Computer Science'
-      institution: 'Example University'
-      location: 'Cambridge, UK'
-      start: '2023'
-      end: 'Present'
-      advisor: 'Prof. Placeholder Name'
-      thesis: 'A Placeholder Thesis Title (in progress)'
-
-    - degree: 'MSc in Computer Science'
-      institution: 'Another University'
-      location: 'London, UK'
-      start: '2021'
-      end: '2022'
-      advisor: 'Prof. Another Name'
-      thesis: "A Placeholder Master's Thesis Title"
-
-    - degree: 'BSc in Mathematics'
-      institution: 'Some University'
-      location: 'Manchester, UK'
+    - degree: 'PhD in Physics'
+      institution: 'The Chinese University of Hong Kong'
+      location: 'Hong Kong, China'
       start: '2018'
-      end: '2021'
-      advisor: ''
+      end: '2023'
+      supervisor: 'Prof. Tjonnie G. F. Li'
+      thesis:
+          'Inferring Physics from Gravitational Waves: Probing
+          Gravitational-wave Polarizations and Topics in Gravitational-wave Data
+          Analysis'
+
+    - degree: 'BSc in Physics'
+      institution: 'The Chinese University of Hong Kong'
+      location: 'Hong Kong, China'
+      start: '2014'
+      end: '2018'
+      supervisor: ''
       thesis: ''
