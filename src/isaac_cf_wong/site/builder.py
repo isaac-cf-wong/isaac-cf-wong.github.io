@@ -56,7 +56,7 @@ def _make_environment(templates_dir: Path) -> Environment:
 
 def _items(content: dict[str, Any], key: str) -> list[dict[str, Any]]:
     section = content.get(key) or {}
-    return list(section.get("items", []))
+    return list(section.get("items") or [])
 
 
 def _normalize_pages(site: dict[str, Any]) -> list[dict[str, Any]]:
