@@ -1,3 +1,4 @@
+{% from "partials/icons.html" import icon %}
 <!doctype html>
 <html lang="{{ site.language | default('en') }}">
 <head>
@@ -12,6 +13,7 @@
   <meta property="og:title" content="{% if page.slug %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ site.description | default('') }}">
   <meta property="og:url" content="{{ page_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
   <style>:root { --accent: {{ site.accent | default('#2563eb') }}; }</style>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -39,6 +41,7 @@
 
   <footer class="footer">
     <p>© <span id="year"></span> {{ profile.name }}. Built from structured content.</p>
+    <a class="feed-link" href="/feed.xml" title="Subscribe via Atom feed" aria-label="Subscribe via Atom feed">{{ icon("rss") }}<span>Feed</span></a>
   </footer>
 
   <script src="/assets/js/main.js"></script>

@@ -563,6 +563,28 @@ main > .section:first-child {
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 0.88rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem 1rem;
+}
+.footer p {
+    margin: 0;
+}
+.feed-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--muted);
+}
+.feed-link:hover {
+    color: var(--text);
+    text-decoration: none;
+}
+.feed-link .icon {
+    width: 16px;
+    height: 16px;
 }
 
 /* Responsive */
