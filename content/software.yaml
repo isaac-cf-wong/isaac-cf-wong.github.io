@@ -1,0 +1,171 @@
+# Open-source software you maintain, shown grouped by `category`.
+# Items are grouped in the order their category first appears, so list the
+# entries of the category you want shown first at the top.
+#
+# Each item:
+#   name      (required) the package / repository name
+#   category  (required) the group heading, e.g. 'Packages', 'Templates', 'Tools'
+#   summary   one-line description (Markdown allowed)
+#   role      optional, e.g. 'Maintainer', 'Author', 'Contributor'
+#   license   optional SPDX id shown as a badge, e.g. 'MIT', 'Apache-2.0'
+#   tags      short keywords, e.g. language or domain
+#   links     list of {label, url}, e.g. Repo / Docs / PyPI / 'Use template'
+#
+# Set `items: null` to hide the whole section.
+# Validated against schemas/software.schema.json.
+
+items:
+    - name: 'bibsync'
+      category: 'packages'
+      summary:
+          'bibsync synchronizes BibTeX files from citation keys in LaTeX
+          sources. It is inspired by adstex, with provider support for both NASA
+          ADS and InspireHEP.'
+      role: 'maintainer'
+      tags: ['python', 'rust', 'bibtex']
+      license: 'BSD 3-Clause'
+      links:
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/bibsync' }
+          - { label: 'crates.io', url: 'https://crates.io/crates/bibsync' }
+          - { label: 'pypi', url: 'https://pypi.org/project/bibsync/' }
+
+    - name: 'gwmock'
+      category: 'packages'
+      summary:
+          'A python package for generating mock data challenge datasets for the
+          gravitational-wave community.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'GPL-3.0-or-later'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/leuven-gravity-institute/gwmock',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock/' }
+
+    - name: 'gwmock-signal'
+      category: 'packages'
+      summary: 'A Python package for simulating gravitational wave signals'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'GPL-3.0-or-later'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/leuven-gravity-institute/gwmock-signal',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock-signal/' }
+
+    - name: 'gwmock-pop'
+      category: 'packages'
+      summary:
+          'A Python package for simulating populations of gravitational-wave
+          sources.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'BSD 3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/leuven-gravity-institute/gwmock-pop',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock-pop/' }
+
+    - name: 'gwmock-noise'
+      category: 'packages'
+      summary:
+          'A Python package for simulating gravitational wave detector noise.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'BSD 3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/leuven-gravity-institute/gwmock-noise',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock-noise/' }
+
+    - name: 'nullpol'
+      category: 'packages'
+      summary:
+          'Null-stream-based, unmodeled Bayesian framework for probing generic
+          gravitational-wave polarizations.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves', 'bayesian-inference']
+      license: 'MIT'
+      links:
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/nullpol' }
+
+    # --- Replace the example below with your real GitHub Actions. ---
+
+    - name: 'detect-git-changes-action'
+      category: 'github actions'
+      summary: 'A GitHub action to detect changes in a git repository.'
+      role: 'maintainer'
+      tags: ['github-actions', 'ci']
+      license: 'MIT'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/detect-git-changes-action`',
+            }
+          - {
+                label: 'marketplace',
+                url: 'https://github.com/marketplace/actions/detect-git-changes-action',
+            }
+
+    - name: 'python-package-template'
+      category: 'templates'
+      summary: 'A template for Python projects.'
+      role: 'maintainer'
+      tags: ['python', 'template']
+      license: 'BSD 3-Clause'
+      links:
+          - {
+                label: 'use template',
+                url: 'https://github.com/new?template_name=python-package-template&template_owner=isaac-cf-wong',
+            }
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/python-package-template',
+            }
+
+    - name: 'rust-package-template'
+      category: 'templates'
+      summary: 'A template for Rust projects.'
+      role: 'maintainer'
+      tags: ['rust', 'template']
+      license: 'MIT'
+      links:
+          - {
+                label: 'use template',
+                url: 'https://github.com/new?template_name=rust-package-template&template_owner=isaac-cf-wong',
+            }
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/rust-package-template',
+            }
+
+    - name: 'presentation-template'
+      category: 'templates'
+      summary:
+          'A modern, responsive presentation template built with reveal.js
+          featuring smooth transitions, mobile support, and automated GitHub
+          Pages deployment.'
+      role: 'maintainer'
+      tags: ['template', 'presentation', 'reveal.js']
+      license: 'MIT'
+      links:
+          - {
+                label: 'use template',
+                url: 'https://github.com/new?template_name=presentation-template&template_owner=isaac-cf-wong',
+            }
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/presentation-template',
+            }
+          - {
+                label: 'sample presentation',
+                url: 'https://isaac-cf-wong.github.io/presentation-template/',
+            }
