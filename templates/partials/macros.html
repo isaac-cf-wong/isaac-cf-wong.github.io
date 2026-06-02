@@ -21,10 +21,10 @@
   <div class="timeline-body">
     <p class="timeline-role">{{ role }}</p>
     <p class="timeline-org">{{ org }}</p>
-    {% for line in lines if line %}<p class="timeline-summary">{{ line | safe }}</p>{% endfor %}
+    {% for line in lines if line %}<p class="timeline-summary">{{ line | markdown_inline }}</p>{% endfor %}
     {% if bullets %}
     <ul class="bullets">
-      {% for bullet in bullets %}<li>{{ bullet }}</li>{% endfor %}
+      {% for bullet in bullets %}<li>{{ bullet | markdown_inline }}</li>{% endfor %}
     </ul>
     {% endif %}
   </div>
