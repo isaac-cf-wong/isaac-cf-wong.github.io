@@ -1,3 +1,4 @@
+{% from "partials/macros.html" import pub_ref %}
 {% if projects %}
 <section id="projects" class="section">
   {% if show_title %}<h2 class="section-title">Projects</h2>{% endif %}
@@ -6,15 +7,49 @@
     <article class="card">
       <h3 class="card-title">{{ item.name }}</h3>
       <p class="card-summary">{{ item.summary }}</p>
-      {% if item.tags %}
-      <ul class="tags small">
-        {% for tag in item.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
-      </ul>
+      {% if item.tags or item.links %}
+      <div class="card-meta">
+        {% if item.tags %}
+        <ul class="tags small">
+          {% for tag in item.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
+        </ul>
+        {% else %}<span></span>{% endif %}
+        {% if item.links %}
+        <p class="card-links">
+          {% for link in item.links %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>{% endfor %}
+        </p>
+        {% endif %}
+      </div>
       {% endif %}
-      {% if item.links %}
-      <p class="card-links">
-        {% for link in item.links %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>{% endfor %}
-      </p>
+      {% if item.related_publications %}
+      <div class="card-pubs">
+        <p class="card-pubs-label">Related publications</p>
+        <ul class="card-pubs-list">
+          {% for pub in item.related_publications %}{{ pub_ref(pub) }}{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if item.topics %}
+      <div class="card-topics">
+        {% for topic in item.topics %}
+        <div class="topic">
+          <div class="topic-head">
+            <p class="topic-name">{{ topic.name }}</p>
+            {% if topic.links %}
+            <p class="card-links">
+              {% for link in topic.links %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>{% endfor %}
+            </p>
+            {% endif %}
+          </div>
+          {% if topic.note %}<p class="topic-note">{{ topic.note }}</p>{% endif %}
+          {% if topic.related_publications %}
+          <ul class="card-pubs-list">
+            {% for pub in topic.related_publications %}{{ pub_ref(pub) }}{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
       {% endif %}
     </article>
     {% endfor %}

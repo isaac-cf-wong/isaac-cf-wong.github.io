@@ -15,6 +15,11 @@
 </li>
 {% endmacro %}
 
+{# Compact one-line publication reference used inside project cards. #}
+{% macro pub_ref(pub) %}
+<li>{% if pub.links %}<a href="{{ pub.links[0].url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}{% if pub.venue %} <span class="card-pubs-meta">· {{ pub.venue }}</span>{% endif %}</li>
+{% endmacro %}
+
 {% macro timeline_item(period, role, org, lines, bullets) %}
 <li class="timeline-item">
   <div class="timeline-period">{{ period }}</div>

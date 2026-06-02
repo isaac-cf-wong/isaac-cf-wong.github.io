@@ -5,6 +5,24 @@
     "type": "object",
     "required": ["items"],
     "additionalProperties": false,
+    "$defs": {
+        "links": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["label", "url"],
+                "additionalProperties": false,
+                "properties": {
+                    "label": { "type": "string" },
+                    "url": { "type": "string" }
+                }
+            }
+        },
+        "publications": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+        }
+    },
     "properties": {
         "items": {
             "type": "array",
@@ -19,15 +37,21 @@
                         "type": "array",
                         "items": { "type": "string" }
                     },
-                    "links": {
+                    "publications": { "$ref": "#/$defs/publications" },
+                    "links": { "$ref": "#/$defs/links" },
+                    "topics": {
                         "type": "array",
                         "items": {
                             "type": "object",
-                            "required": ["label", "url"],
+                            "required": ["name"],
                             "additionalProperties": false,
                             "properties": {
-                                "label": { "type": "string" },
-                                "url": { "type": "string" }
+                                "name": { "type": "string", "minLength": 1 },
+                                "note": { "type": "string" },
+                                "publications": {
+                                    "$ref": "#/$defs/publications"
+                                },
+                                "links": { "$ref": "#/$defs/links" }
                             }
                         }
                     }
