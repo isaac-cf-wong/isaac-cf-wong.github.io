@@ -21,7 +21,7 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="nav-brand" href="/">{{ profile.name }}</a>
-      <nav class="nav-links" aria-label="Primary">
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
         {% for item in nav_pages %}
         {% set href = '/' if not item.slug else '/' ~ item.slug ~ '/' %}
         {% if item.slug == page.slug %}
@@ -31,7 +31,10 @@
         {% endif %}
         {% endfor %}
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">◐</button>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">◐</button>
+        <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">☰</button>
+      </div>
     </div>
   </header>
 
