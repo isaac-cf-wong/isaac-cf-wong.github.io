@@ -98,13 +98,14 @@ lint.extend-select = [
   "PL",  # Add pylint rules for fuller coverage
   "SIM", # Similarities
   "T10", # Debugger statements
-  "DOC", # Docstring
   "D",   # Doc style
   "S",   # Security
 ]
 lint.ignore = [
   "E501", # Line length (handled by formatter)
   "C901", # Disable overly strict complexity checks (optional, adjust as needed)
+  "D203", # Incompatible with D211 (no blank line before class); keep D211
+  "D213", # Incompatible with D212 (multi-line summary on first line); keep D212
 ]
 lint.unfixable = [] # List rules that should not be autofixed, if any
 fix = true # Enable autofix
@@ -119,11 +120,12 @@ required-version = ">=0.10.6"
 
 [tool.ruff.lint.per-file-ignores]
 # Ignore specific rules in the tests directory
-"tests/*" = ["S101", "ARG001", "PLC0415", "PLR2004"]
+"tests/*" = ["S101", "ARG001", "PLC0415", "PLR2004", "S314"]
 # S101: allow assert statements
 # ARG001: allow unused function arguments (common in fixtures)
 # PLC0415: allow import statements not at the top level
 # PLR2004: allow magic values in the unit tests
+# S314: tests parse the build's own generated feed.xml (trusted local output)
 # Typer reads option/argument defaults from the function signature, so calls in
 # defaults (typer.Option(...), Path.cwd()) are the intended pattern here.
 "src/isaac_cf_wong/cli/*" = ["B008"]

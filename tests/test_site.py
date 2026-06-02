@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import pytest
 from jsonschema import Draft202012Validator
 
 from isaac_cf_wong.site import SitePaths, build_site, load_content, validate_content
-from isaac_cf_wong.site.builder import _group_software, _resolve_project_publications
+from isaac_cf_wong.site.builder import _feed_entries, _group_software, _resolve_project_publications
+
+ATOM_NS = "{http://www.w3.org/2005/Atom}"
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -136,3 +139,40 @@ def test_software_schema_supports_optional_license() -> None:
 
     assert list(validator.iter_errors(valid)) == []
     assert list(validator.iter_errors(typo)), "misspelled 'licence' key should be rejected"
+
+
+def test_feed_entries_combine_sources_newest_first() -> None:
+    """News, talks, and publications combine into one feed, sorted newest-first."""
+    context = {
+        "site": {"url": "https://example.com"},
+        "news": [{"date": "2025-01-01", "body": "Older **news** item"}],
+        "talks": [{"date": "2026-05-01", "title": "A talk", "event": "Conf", "location": "Leuven"}],
+        "publications": [{"title": "Paper", "year": 2024, "authors": ["**Me**", "You"], "venue": "PRD"}],
+    }
+
+    entries = _feed_entries(context)
+
+    assert [e["category"] for e in entries] == ["talk", "news", "publication"]
+    assert entries[0]["title"] == "A talk"
+    # author emphasis markers are stripped from the publication summary
+    pub = next(e for e in entries if e["category"] == "publication")
+    assert "**" not in pub["content_html"]
+    assert "Me" in pub["content_html"]
+
+
+def test_build_emits_valid_atom_feed(tmp_path: pytest.TempPathFactory) -> None:
+    """The build writes a well-formed Atom feed and advertises it for autodiscovery."""
+    output = Path(tmp_path) / "_site"
+    paths = SitePaths(root=ROOT, output_dir=str(output))
+    result = build_site(paths)
+
+    feed = result / "feed.xml"
+    assert feed.exists()
+    root = ET.parse(feed).getroot()
+    assert root.tag == f"{ATOM_NS}feed"
+    # publications are real content, so the feed should carry at least one entry
+    assert root.findall(f"{ATOM_NS}entry"), "expected at least one feed entry"
+
+    home = (result / "index.html").read_text(encoding="utf-8")
+    assert 'type="application/atom+xml"' in home
+    assert 'href="/feed.xml"' in home

@@ -5,12 +5,16 @@ The build is deliberately small and explicit:
 1. Load the structured content (``content/*.yaml``).
 2. Derive a few sorted/grouped views (news, talks, awards, publications).
 3. Render one page per ``site.pages`` entry to ``<slug>/index.html``.
-4. Copy ``assets/`` into the output and add a ``.nojekyll`` marker.
+4. Write an Atom feed of recent updates to ``feed.xml``.
+5. Copy ``assets/`` into the output and add a ``.nojekyll`` marker.
 """
 
 from __future__ import annotations
 
+import hashlib
+import re
 import shutil
+from datetime import date, datetime, timezone
 from itertools import groupby
 from pathlib import Path
 from typing import Any
@@ -191,6 +195,109 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+_FEED_MAX_ENTRIES = 30
+
+
+def _rfc3339(value: str) -> str | None:
+    """Convert a ``YYYY-MM-DD`` date string to an RFC 3339 UTC timestamp."""
+    try:
+        parsed = datetime.strptime(value, "%Y-%m-%d")
+    except (ValueError, TypeError):
+        return None
+    return parsed.replace(tzinfo=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _feed_token(*parts: str) -> str:
+    """Return a short, stable id token derived from content (not used for security)."""
+    digest = hashlib.sha1("\x1f".join(parts).encode("utf-8"), usedforsecurity=False)
+    return digest.hexdigest()[:12]
+
+
+def _plain_title(markdown_text: str, limit: int = 100) -> str:
+    """Derive a one-line plain-text title from a Markdown body."""
+    text = re.sub(r"<[^>]+>", "", str(_render_markdown(markdown_text)))
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) > limit:
+        text = text[: limit - 1].rstrip() + "…"
+    return text or "Update"
+
+
+def _feed_entries(context: dict[str, Any]) -> list[dict[str, Any]]:
+    """Build a unified, newest-first list of feed entries from the content views."""
+    base = str(context.get("site", {}).get("url", "")).rstrip("/")
+    entries: list[dict[str, Any]] = []
+
+    for item in context.get("news", []):
+        updated = _rfc3339(item.get("date", ""))
+        body = item.get("body", "")
+        if updated is None:
+            continue
+        entries.append(
+            {
+                "title": _plain_title(body),
+                "id": f"{base}/news/#{_feed_token('news', item.get('date', ''), body)}",
+                "link": f"{base}/news/",
+                "updated": updated,
+                "category": "news",
+                "content_html": str(_render_markdown(body)),
+            }
+        )
+
+    for item in context.get("talks", []):
+        updated = _rfc3339(item.get("date", ""))
+        if updated is None:
+            continue
+        title = item.get("title", "")
+        meta = " · ".join(part for part in (item.get("event", ""), item.get("location", "")) if part)
+        entries.append(
+            {
+                "title": title,
+                "id": f"{base}/talks/#{_feed_token('talk', item.get('date', ''), title)}",
+                "link": item.get("url") or f"{base}/talks/",
+                "updated": updated,
+                "category": "talk",
+                "content_html": meta,
+            }
+        )
+
+    for item in context.get("publications", []):
+        year = item.get("year")
+        if not isinstance(year, int):
+            continue
+        authors = ", ".join(a.replace("*", "") for a in item.get("authors", []))
+        summary = " — ".join(part for part in (authors, item.get("venue", "")) if part)
+        token = _feed_token("publication", item.get("key") or item.get("title", ""))
+        entries.append(
+            {
+                "title": item.get("title", ""),
+                "id": f"{base}/publications/#{token}",
+                "link": item["links"][0]["url"] if item.get("links") else f"{base}/publications/",
+                "updated": f"{year}-01-01T00:00:00Z",
+                "category": "publication",
+                "content_html": summary,
+            }
+        )
+
+    entries.sort(key=lambda entry: entry["updated"], reverse=True)
+    return entries[:_FEED_MAX_ENTRIES]
+
+
+def _render_feed(env: Environment, context: dict[str, Any]) -> str:
+    """Render the Atom feed XML for the site's recent updates."""
+    base = str(context.get("site", {}).get("url", "")).rstrip("/")
+    entries = _feed_entries(context)
+    feed_updated = entries[0]["updated"] if entries else f"{date.today().isoformat()}T00:00:00Z"
+    return env.get_template("feed.xml").render(
+        site=context.get("site", {}),
+        profile=context.get("profile", {}),
+        entries=entries,
+        feed_id=f"{base}/feed.xml",
+        feed_self=f"{base}/feed.xml",
+        feed_alternate=f"{base}/",
+        feed_updated=feed_updated,
+    )
+
+
 def build_site(paths: SitePaths) -> Path:
     """Build the site and return the path to the output directory.
 
@@ -220,6 +327,8 @@ def build_site(paths: SitePaths) -> Path:
         destination = _page_path(output, page["slug"])
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(html, encoding="utf-8")
+
+    (output / "feed.xml").write_text(_render_feed(env, context), encoding="utf-8")
 
     if paths.assets.is_dir():
         shutil.copytree(paths.assets, output / paths.assets_dir, dirs_exist_ok=True)
