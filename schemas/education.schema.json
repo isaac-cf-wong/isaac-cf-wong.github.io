@@ -18,7 +18,7 @@
                     "location": { "type": "string" },
                     "start": { "type": "string" },
                     "end": { "type": "string" },
-                    "advisor": { "type": "string" },
+                    "supervisor": { "type": "string" },
                     "thesis": { "type": "string" }
                 }
             }
