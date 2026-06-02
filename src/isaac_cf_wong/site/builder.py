@@ -59,6 +59,51 @@ def _items(content: dict[str, Any], key: str) -> list[dict[str, Any]]:
     return list(section.get("items") or [])
 
 
+def _resolve_publications(
+    keys: list[str] | None, pub_by_key: dict[str, dict[str, Any]], *, owner: str
+) -> list[dict[str, Any]]:
+    """Resolve a list of publication ``key`` values to their full records.
+
+    Raises:
+        ValueError: If a key does not match any known publication.
+
+    """
+    resolved: list[dict[str, Any]] = []
+    for key in keys or []:
+        pub = pub_by_key.get(key)
+        if pub is None:
+            raise ValueError(f"projects.yaml: {owner} references unknown publication key {key!r}")
+        resolved.append(pub)
+    return resolved
+
+
+def _resolve_project_publications(
+    projects: list[dict[str, Any]], pub_by_key: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Attach resolved publication records to each project and its sub-topics.
+
+    A project (and each of its optional ``topics``) may list publication ``key``
+    values under ``publications``; these are resolved to the full records so the
+    template can render them grouped together.
+
+    Raises:
+        ValueError: If a project or topic references a publication key that does not exist.
+
+    """
+    for project in projects:
+        name = project.get("name", "?")
+        project["related_publications"] = _resolve_publications(
+            project.get("publications"), pub_by_key, owner=f"project {name!r}"
+        )
+        for topic in project.get("topics") or []:
+            topic["related_publications"] = _resolve_publications(
+                topic.get("publications"),
+                pub_by_key,
+                owner=f"project {name!r} topic {topic.get('name', '?')!r}",
+            )
+    return projects
+
+
 def _normalize_pages(site: dict[str, Any]) -> list[dict[str, Any]]:
     """Expand the ``site.pages`` config into a uniform structure for templates.
 
@@ -99,7 +144,11 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
     talks = sorted(_items(content, "talks"), key=lambda item: item.get("date", ""), reverse=True)
     awards = sorted(_items(content, "awards"), key=lambda item: item.get("year", 0), reverse=True)
 
-    included_publications = [p for p in _items(content, "publications") if p.get("include", True) is not False]
+    all_publications = _items(content, "publications")
+    pub_by_key = {p["key"]: p for p in all_publications if p.get("key")}
+    projects = _resolve_project_publications(_items(content, "projects"), pub_by_key)
+
+    included_publications = [p for p in all_publications if p.get("include", True) is not False]
     publications = sorted(included_publications, key=lambda item: item.get("year", 0), reverse=True)
     publications_by_year = [
         {"year": year, "items": list(group)} for year, group in groupby(publications, key=lambda item: item.get("year"))
@@ -117,7 +166,7 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
         "selected_publications": selected_publications,
         "experience": _items(content, "experience"),
         "education": _items(content, "education"),
-        "projects": _items(content, "projects"),
+        "projects": projects,
         "teaching": _items(content, "teaching"),
     }
 

@@ -1,19 +1,95 @@
 # Research projects and software, shown in listed order.
 # `links` is a list of {label, url}. `tags` is a list of short keywords.
+# `publications` is a list of publication `key` values (see content/publications.yaml);
+#   each must match an existing publication or the build fails. Listed in the
+#   order given. Renders as a "Related publications" list on the project card.
+# `topics` groups a broad project into sub-threads, each with its own optional
+#   `note`, `publications`, and `links`, so a reader can see which papers and
+#   resources belong together. Use it when a single project spans several
+#   distinct strands; omit it for narrow projects.
 # Validated against schemas/projects.schema.json.
 
 items:
-    - name: 'Placeholder Project One'
+    - name: 'Software Infrastructure for Gravitational-Wave Research'
       summary:
-          'A short description of what this project does and why it matters.'
-      tags: ['topic-a', 'topic-b']
-      links:
-          - { label: 'Code', url: 'https://github.com/username/project-one' }
-          - { label: 'Website', url: 'https://example.com/project-one' }
+          'Develop the software infrastructure for gravitational-wave research.'
+      tags: ['software']
+      topics:
+          - name: 'Mock data challenge'
+            note:
+                'Packages that feature the reproducibility and traceability of
+                mock dataset.'
+            links:
+                - {
+                      label: 'Code: gwmock',
+                      url: 'https://github.com/Leuven-Gravity-Institute/gwmock',
+                  }
+                - {
+                      label: 'Code: gwmock-signal',
+                      url: 'https://github.com/Leuven-Gravity-Institute/gwmock-signal',
+                  }
+                - {
+                      label: 'Code: gwmock-pop',
+                      url: 'https://github.com/Leuven-Gravity-Institute/gwmock-signal',
+                  }
+                - {
+                      label: 'Code: gwmock-noise',
+                      url: 'https://github.com/Leuven-Gravity-Institute/gwmock-noise',
+                  }
 
-    - name: 'Placeholder Project Two'
+    - name: 'Data Analysis in the Era of the Einstein Telescope'
       summary:
-          'Another short description of a project, tool, or dataset you built.'
-      tags: ['open-source', 'tooling']
-      links:
-          - { label: 'Code', url: 'https://github.com/username/project-two' }
+          'Research the general data analysis problems in the era of the
+          Einstein Telescope'
+      tags: ['einstein-telescope', 'data-analysis']
+      topics:
+          - name: 'Null-stream methods'
+            note:
+                'Waveform-agnostic calibration and glitch mitigation built on
+                detector null streams.'
+            publications:
+                - 'arxiv:2510.06327'
+                - 'doi:10.1103/l6tp-ykxp'
+            links:
+                - {
+                      label: 'Code: nullcal',
+                      url: 'https://github.com/Leuven-Gravity-Institute/nullcal',
+                  }
+
+          - name: 'Correlated detector noise'
+            note:
+                'Network likelihoods and the impact of correlated noise in
+                next-generation detectors.'
+            publications:
+                - 'doi:10.1103/PhysRevD.111.044046'
+                - 'doi:10.1103/PhysRevD.110.104060'
+
+          - name: 'Einstein Telescope network geometry'
+            note: 'Signal-space structure of the triangular ET configuration.'
+            publications:
+                - 'doi:10.1103/PhysRevD.105.084002'
+
+    - name: 'Gravitational Wave Polarizations'
+      summary: 'Search for extra gravitational-wave polarizations'
+      tags: ['gravitational-wave-polarizations', 'testing-general-relativity']
+      topics:
+          - name: 'Null-stream polarization framework'
+            note:
+                'Null-stream-based Bayesian, unmodeled searches for generic
+                gravitational-wave polarizations.'
+            publications:
+                - 'arxiv:2105.09485'
+                - 'doi:10.1103/PhysRevD.101.104055'
+            links:
+                - {
+                      label: 'Code: nullpol',
+                      url: 'https://github.com/isaac-cf-wong/nullpol',
+                  }
+
+          - name: 'Tests of general relativity with LVK catalogs'
+            note:
+                'Collaboration tests of general relativity using the GWTC
+                catalogs.'
+            publications:
+                - 'arxiv:2603.19019'
+                - 'doi:10.1103/PhysRevD.112.084080'
