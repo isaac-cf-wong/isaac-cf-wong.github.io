@@ -37,4 +37,33 @@
             }
         })
     }
+
+    // Mobile navigation menu toggle.
+    var nav = document.querySelector('.nav')
+    var navToggle = document.getElementById('nav-toggle')
+    function closeNav() {
+        if (nav && nav.classList.contains('nav-open')) {
+            nav.classList.remove('nav-open')
+            if (navToggle) {
+                navToggle.setAttribute('aria-expanded', 'false')
+            }
+        }
+    }
+    if (nav && navToggle) {
+        navToggle.addEventListener('click', function () {
+            var open = nav.classList.toggle('nav-open')
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+        })
+        // Close when tapping outside the header or pressing Escape.
+        document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target)) {
+                closeNav()
+            }
+        })
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeNav()
+            }
+        })
+    }
 })()
