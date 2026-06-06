@@ -492,7 +492,7 @@ requires-dist = [
     { name = "jsonschema", specifier = ">=4.26.0" },
     { name = "markdown", specifier = ">=3.10.2" },
     { name = "pyyaml", specifier = ">=6.0.3" },
-    { name = "typer", specifier = ">=0.26.6" },
+    { name = "typer", specifier = ">=0.26.7" },
 ]
 
 [package.metadata.requires-dev]
