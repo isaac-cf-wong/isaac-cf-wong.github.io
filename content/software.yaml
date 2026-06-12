@@ -93,7 +93,7 @@ items:
           gravitational-wave polarizations.'
       role: 'maintainer'
       tags: ['python', 'gravitational-waves', 'bayesian-inference']
-      license: 'MIT'
+      license: 'GPL-3.0-or-later'
       links:
           - { label: 'repo', url: 'https://github.com/isaac-cf-wong/nullpol' }
 
