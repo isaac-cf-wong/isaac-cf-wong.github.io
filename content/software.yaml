@@ -111,6 +111,7 @@ items:
       license: 'GPL-3.0-or-later'
       links:
           - { label: 'repo', url: 'https://github.com/isaac-cf-wong/nullpol' }
+          - { label: 'pypi', url: 'https://pypi.org/project/nullpol/' }
 
     # --- Replace the example below with your real GitHub Actions. ---
 
