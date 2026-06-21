@@ -86,6 +86,21 @@ items:
             }
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-noise/' }
 
+    - name: 'gwmock-benchmark'
+      category: 'packages'
+      summary:
+          'Shared benchmarking for the gwmock packages: one harness, the
+          committed results, and the rendered report site — in one place.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves', 'benchmark']
+      license: 'GPL-3.0-or-later'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/leuven-gravity-institute/gwmock-benchmark',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock-benchmark/' }
+
     - name: 'nullpol'
       category: 'packages'
       summary:
