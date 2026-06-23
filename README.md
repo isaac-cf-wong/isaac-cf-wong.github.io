@@ -45,17 +45,17 @@ Each file under `content/` is a YAML document validated against the matching
 `schemas/<name>.schema.json`. Every file begins with comments explaining its
 fields.
 
-| File                        | Contents                                                                                               |
-| --------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `content/profile.yaml`      | Identity, contact, social links, bio, and site-wide settings (title, navigation, which sections show). |
-| `content/news.yaml`         | Dated news/announcement items.                                                                         |
-| `content/publications.yaml` | Publications, grouped by year; mark selected work with `highlight: true`.                              |
-| `content/experience.yaml`   | Professional and research positions.                                                                   |
-| `content/education.yaml`    | Degrees.                                                                                               |
-| `content/projects.yaml`     | Research projects and software.                                                                        |
-| `content/teaching.yaml`     | Courses taught.                                                                                        |
-| `content/awards.yaml`       | Awards, honours, grants.                                                                               |
-| `content/talks.yaml`        | Invited talks and presentations.                                                                       |
+| File                         | Contents                                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `content/profile.yaml`       | Identity, contact, social links, bio, and site-wide settings (title, navigation, which sections show). |
+| `content/news.yaml`          | Dated news/announcement items.                                                                         |
+| `content/publications.yaml`  | Publications, grouped by year; mark selected work with `highlight: true`.                              |
+| `content/experience.yaml`    | Professional and research positions.                                                                   |
+| `content/education.yaml`     | Degrees.                                                                                               |
+| `content/projects.yaml`      | Research projects and software.                                                                        |
+| `content/teaching.yaml`      | Courses taught.                                                                                        |
+| `content/awards.yaml`        | Awards, honours, grants.                                                                               |
+| `content/presentations.yaml` | Talks and workshops (`kind: talk` or `kind: workshop`).                                                |
 
 ### Editing rules
 

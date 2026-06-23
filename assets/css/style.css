@@ -498,8 +498,9 @@ main > .section:first-child {
     color: var(--muted);
 }
 
-/* Software (grouped by category) */
-.software-category {
+/* Software (grouped by category) and presentations (grouped by kind) */
+.software-category,
+.presentation-category {
     font-size: 0.95rem;
     margin: 1.4rem 0 0.5rem;
     color: var(--muted);

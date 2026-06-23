@@ -1,0 +1,23 @@
+{% macro presentation_list(items) %}
+<ul class="plain-list">
+  {% for item in items %}
+  <li class="plain-item">
+    <span class="plain-main">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</span>
+    <span class="plain-meta">{{ item.event }}{% if item.location %} · {{ item.location }}{% endif %} · {{ item.date }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+{% if talks or workshops %}
+<section id="presentations" class="section">
+  {% if show_title %}<h2 class="section-title">Presentations</h2>{% endif %}
+  {% if talks %}
+  <h3 class="presentation-category">Talks</h3>
+  {{ presentation_list(talks) }}
+  {% endif %}
+  {% if workshops %}
+  <h3 class="presentation-category">Workshops</h3>
+  {{ presentation_list(workshops) }}
+  {% endif %}
+</section>
+{% endif %}

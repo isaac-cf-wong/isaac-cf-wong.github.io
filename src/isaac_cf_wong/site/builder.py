@@ -3,7 +3,7 @@
 The build is deliberately small and explicit:
 
 1. Load the structured content (``content/*.yaml``).
-2. Derive a few sorted/grouped views (news, talks, awards, publications).
+2. Derive a few sorted/grouped views (news, presentations, awards, publications).
 3. Render one page per ``site.pages`` entry to ``<slug>/index.html``.
 4. Write an Atom feed of recent updates to ``feed.xml``.
 5. Copy ``assets/`` into the output and add a ``.nojekyll`` marker.
@@ -164,7 +164,9 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
     profile_doc = content.get("profile") or {}
 
     news = sorted(_items(content, "news"), key=lambda item: item.get("date", ""), reverse=True)
-    talks = sorted(_items(content, "talks"), key=lambda item: item.get("date", ""), reverse=True)
+    presentations = sorted(_items(content, "presentations"), key=lambda item: item.get("date", ""), reverse=True)
+    talks = [item for item in presentations if item.get("kind") == "talk"]
+    workshops = [item for item in presentations if item.get("kind") == "workshop"]
     awards = sorted(_items(content, "awards"), key=lambda item: item.get("year", 0), reverse=True)
 
     all_publications = _items(content, "publications")
@@ -182,7 +184,9 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
         "site": profile_doc.get("site", {}),
         "profile": profile_doc.get("profile", {}),
         "news": news,
+        "presentations": presentations,
         "talks": talks,
+        "workshops": workshops,
         "awards": awards,
         "publications": publications,
         "publications_by_year": publications_by_year,
@@ -243,19 +247,20 @@ def _feed_entries(context: dict[str, Any]) -> list[dict[str, Any]]:
             }
         )
 
-    for item in context.get("talks", []):
+    for item in context.get("presentations", []):
         updated = _rfc3339(item.get("date", ""))
         if updated is None:
             continue
         title = item.get("title", "")
+        kind = item.get("kind", "talk")
         meta = " · ".join(part for part in (item.get("event", ""), item.get("location", "")) if part)
         entries.append(
             {
                 "title": title,
-                "id": f"{base}/talks/#{_feed_token('talk', item.get('date', ''), title)}",
+                "id": f"{base}/talks/#{_feed_token(kind, item.get('date', ''), title)}",
                 "link": item.get("url") or f"{base}/talks/",
                 "updated": updated,
-                "category": "talk",
+                "category": kind,
                 "content_html": meta,
             }
         )
