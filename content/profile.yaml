@@ -23,7 +23,7 @@ site:
     # A block is either a plain name, or {name: <block>, preview: N} to show only
     # the N most recent items with a link through to the block's full page.
     # Available blocks: about, news, publications, experience, education,
-    # projects, software, teaching, awards, talks, contact.
+    # projects, software, teaching, awards, presentations, contact.
     pages:
         - slug: ''
           label: 'Home'
@@ -53,9 +53,9 @@ site:
         #  nav: true
         #  sections: ['teaching']
         - slug: 'talks'
-          label: 'Talks'
+          label: 'Presentations'
           nav: true
-          sections: ['talks']
+          sections: ['presentations']
         - slug: 'news'
           label: 'News'
           nav: true

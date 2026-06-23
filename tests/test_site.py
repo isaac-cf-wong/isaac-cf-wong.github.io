@@ -142,11 +142,13 @@ def test_software_schema_supports_optional_license() -> None:
 
 
 def test_feed_entries_combine_sources_newest_first() -> None:
-    """News, talks, and publications combine into one feed, sorted newest-first."""
+    """News, presentations, and publications combine into one feed, sorted newest-first."""
     context = {
         "site": {"url": "https://example.com"},
         "news": [{"date": "2025-01-01", "body": "Older **news** item"}],
-        "talks": [{"date": "2026-05-01", "title": "A talk", "event": "Conf", "location": "Leuven"}],
+        "presentations": [
+            {"kind": "talk", "date": "2026-05-01", "title": "A talk", "event": "Conf", "location": "Leuven"}
+        ],
         "publications": [{"title": "Paper", "year": 2024, "authors": ["**Me**", "You"], "venue": "PRD"}],
     }
 

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "talks.schema.json",
-    "title": "Talks",
+    "$id": "presentations.schema.json",
+    "title": "Presentations",
     "type": "object",
     "required": ["items"],
     "additionalProperties": false,
@@ -10,9 +10,10 @@
             "type": ["array", "null"],
             "items": {
                 "type": "object",
-                "required": ["title", "event", "date"],
+                "required": ["kind", "title", "event", "date"],
                 "additionalProperties": false,
                 "properties": {
+                    "kind": { "type": "string", "enum": ["talk", "workshop"] },
                     "title": { "type": "string", "minLength": 1 },
                     "event": { "type": "string" },
                     "location": { "type": "string" },
