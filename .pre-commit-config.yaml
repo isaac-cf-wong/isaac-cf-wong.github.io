@@ -16,14 +16,14 @@ repos:
           - id: check-json
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.15.16
+      rev: v0.15.20
       hooks:
           - id: ruff-check
             args: [--fix, --config=pyproject.toml]
           - id: ruff-format
 
     - repo: https://github.com/crate-ci/typos
-      rev: v1.47.2
+      rev: v1
       hooks:
           - id: typos
             args: []
@@ -31,7 +31,7 @@ repos:
             exclude: '^content/publications\.yaml$'
 
     - repo: https://github.com/rbubley/mirrors-prettier
-      rev: v3.8.3
+      rev: v3.9.1
       hooks:
           - id: prettier
 
@@ -44,12 +44,12 @@ repos:
                 - .markdownlint.yaml
 
     - repo: https://github.com/astral-sh/uv-pre-commit
-      rev: 0.11.19
+      rev: 0.11.25
       hooks:
           # Update the uv lockfile
           - id: uv-lock
 
     - repo: https://github.com/gitleaks/gitleaks
-      rev: v8.30.1
+      rev: v8.30.0
       hooks:
           - id: gitleaks
