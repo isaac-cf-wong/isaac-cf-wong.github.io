@@ -14,424 +14,405 @@
 # **double asterisks** to emphasise it.
 
 items:
-    - include: true
-      highlight: false
-      title: The Science of the Einstein Telescope
-      authors:
-          - ET (incl. **C. F. Wong**)
-      venue: JCAP 03, 081 (2026)
-      year: 2026
-      type: journal
-      doi: 10.1088/1475-7516/2026/03/081
-      arxiv: '2503.12263'
-      key: doi:10.1088/1475-7516/2026/03/081
-      source: inspire
-      claimed: true
-      author_count: 489
-      collaboration: true
-      links:
-          - label: DOI
-            url: https://doi.org/10.1088/1475-7516/2026/03/081
-          - label: arXiv
-            url: https://arxiv.org/abs/2503.12263
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2901213
-    - include: true
-      highlight: false
-      title: 'GWTC-4.0: Tests of General Relativity. III. Tests of the Remnants'
-      authors:
-          - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
-      venue: arXiv:2603.19021
-      year: 2026
-      type: preprint
-      arxiv: '2603.19021'
-      key: arxiv:2603.19021
-      source: inspire
-      claimed: true
-      author_count: 1779
-      collaboration: true
-      links:
-          - label: arXiv
-            url: https://arxiv.org/abs/2603.19021
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/3131604
-    - include: true
-      highlight: false
-      title: 'GWTC-4.0: Tests of General Relativity. II. Parameterized Tests'
-      authors:
-          - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
-      venue: arXiv:2603.19020
-      year: 2026
-      type: preprint
-      arxiv: '2603.19020'
-      key: arxiv:2603.19020
-      source: inspire
-      claimed: true
-      author_count: 1783
-      collaboration: true
-      links:
-          - label: arXiv
-            url: https://arxiv.org/abs/2603.19020
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/3131614
-    - include: true
-      highlight: false
-      title:
-          'GWTC-4.0: Tests of General Relativity. I. Overview and General Tests'
-      authors:
-          - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
-      venue: arXiv:2603.19019
-      year: 2026
-      type: preprint
-      arxiv: '2603.19019'
-      key: arxiv:2603.19019
-      source: inspire
-      claimed: true
-      author_count: 1781
-      collaboration: true
-      links:
-          - label: arXiv
-            url: https://arxiv.org/abs/2603.19019
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/3131608
-    - include: true
-      highlight: false
-      title:
-          Using overlap of sky localization probability maps for filtering
-          potentially lensed pairs of gravitational-wave signals
-      authors:
-          - Henry W.Y. Wong
-          - Lok W.L. Chan
-          - '**Isaac C.F. Wong**'
-          - Rico K.L. Lo
-          - Tjonnie G.F. Li
-      venue: Phys.Rev.D 112, 124005 (2025)
-      year: 2025
-      type: journal
-      doi: 10.1103/qc7y-z9hy
-      arxiv: '2112.05932'
-      key: doi:10.1103/qc7y-z9hy
-      source: inspire
-      claimed: true
-      author_count: 5
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/qc7y-z9hy
-          - label: arXiv
-            url: https://arxiv.org/abs/2112.05932
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/1989043
-    - include: true
-      highlight: false
-      title: Tests of General Relativity with GWTC-3
-      authors:
-          - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
-      venue: Phys.Rev.D 112, 084080 (2025)
-      year: 2025
-      type: journal
-      doi: 10.1103/PhysRevD.112.084080
-      arxiv: '2112.06861'
-      key: doi:10.1103/PhysRevD.112.084080
-      source: inspire
-      claimed: true
-      author_count: 1682
-      collaboration: true
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevD.112.084080
-          - label: arXiv
-            url: https://arxiv.org/abs/2112.06861
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/1989112
-    - include: true
-      highlight: false
-      title:
-          Potential impact of noise correlation in next-generation gravitational
-          wave detectors
-      authors:
-          - '**Isaac C.F. Wong**'
-          - Peter T.H. Pang
-          - Milan Wils
-          - Francesco Cireddu
-          - Walter Del Pozzo
-          - Tjonnie G.F. Li
-      venue: Phys.Rev.D 111, 044046 (2025)
-      year: 2025
-      type: journal
-      doi: 10.1103/PhysRevD.111.044046
-      arxiv: '2407.08728'
-      key: doi:10.1103/PhysRevD.111.044046
-      source: inspire
-      claimed: true
-      author_count: 6
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevD.111.044046
-          - label: arXiv
-            url: https://arxiv.org/abs/2407.08728
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2806882
-    - include: true
-      highlight: false
-      title:
-          Null-stream-based third-generation-ready glitch mitigation for
-          gravitational wave measurements
-      authors:
-          - Harsh Narola
-          - Thibeau Wouters
-          - Luca Negri
-          - Melissa Lopez
-          - Tom Dooney
-          - Francesco Cireddu
-          - Milan Wils
-          - '**Isaac C.F. Wong**'
-          - Peter T.H. Pang
-          - Justin Janquart
-          - Anuradha Samajdar
-          - Chris Van Den Broeck
-          - Tjonnie G.F. Li
-      venue: Phys.Rev.D 112, 024079 (2025)
-      year: 2025
-      type: journal
-      doi: 10.1103/l6tp-ykxp
-      arxiv: '2411.15506'
-      key: doi:10.1103/l6tp-ykxp
-      source: inspire
-      claimed: true
-      author_count: 13
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/l6tp-ykxp
-          - label: arXiv
-            url: https://arxiv.org/abs/2411.15506
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2851694
-    - include: true
-      highlight: false
-      title:
-          Bayesian Calibration of Gravitational-Wave Detectors Using Null
-          Streams Without Waveform Assumptions
-      authors:
-          - '**Isaac C.F. Wong**'
-          - Francesco Cireddu
-          - Milan Wils
-          - Tom Colemont
-          - Harsh Narola
-          - Chris Van Den Broeck
-          - Tjonnie G.F. Li
-      venue: arXiv:2510.06327
-      year: 2025
-      type: preprint
-      arxiv: '2510.06327'
-      key: arxiv:2510.06327
-      source: inspire
-      claimed: true
-      author_count: 7
-      collaboration: false
-      links:
-          - label: arXiv
-            url: https://arxiv.org/abs/2510.06327
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/3064782
-    - include: true
-      highlight: false
-      title:
-          Likelihood for a network of gravitational-wave detectors with
-          correlated noise
-      authors:
-          - Francesco Cireddu
-          - Milan Wils
-          - '**Isaac C.F. Wong**'
-          - Peter T.H. Pang
-          - Tjonnie G.F. Li
-          - Walter Del Pozzo
-      venue: Phys.Rev.D 110, 104060 (2024)
-      year: 2024
-      type: journal
-      doi: 10.1103/PhysRevD.110.104060
-      arxiv: '2312.14614'
-      key: doi:10.1103/PhysRevD.110.104060
-      source: inspire
-      claimed: true
-      author_count: 6
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevD.110.104060
-          - label: arXiv
-            url: https://arxiv.org/abs/2312.14614
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2740429
-    - include: true
-      highlight: false
-      title:
-          Searching for vector boson-star mergers within LIGO-Virgo
-          intermediate-mass black-hole merger candidates
-      authors:
-          - Juan Calderon Bustillo
-          - Nicolas Sanchis-Gual
-          - Samson H.W. Leong
-          - Koustav Chandra
-          - Alejandro Torres-Forne
-          - Jose A. Font
-          - Carlos Herdeiro
-          - Eugen Radu
-          - '**Isaac C.F. Wong**'
-          - Tjonnie G.F. Li
-      venue: Phys.Rev.D 108, 123020 (2023)
-      year: 2023
-      type: journal
-      doi: 10.1103/PhysRevD.108.123020
-      arxiv: '2206.02551'
-      key: doi:10.1103/PhysRevD.108.123020
-      source: inspire
-      claimed: true
-      author_count: 10
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevD.108.123020
-          - label: arXiv
-            url: https://arxiv.org/abs/2206.02551
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2091701
-    - include: true
-      highlight: false
-      title:
-          Gravitational-Wave Parameter Inference with the Newman-Penrose Scalar
-      authors:
-          - Juan Calderon Bustillo
-          - '**Isaac C.F. Wong**'
-          - Nicolas Sanchis-Gual
-          - Samson H.W. Leong
-          - Alejandro Torres-Forne
-          - Koustav Chandra
-          - Jose A. Font
-          - Carlos Herdeiro
-          - Eugen Radu
-          - Tjonnie G.F. Li
-      venue: Phys.Rev.X 13, 041048 (2023)
-      year: 2023
-      type: journal
-      doi: 10.1103/PhysRevX.13.041048
-      arxiv: '2205.15029'
-      key: doi:10.1103/PhysRevX.13.041048
-      source: inspire
-      claimed: true
-      author_count: 10
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevX.13.041048
-          - label: arXiv
-            url: https://arxiv.org/abs/2205.15029
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2089074
-    - include: true
-      highlight: false
-      title:
-          'Exploring the hidden Universe: a novel phenomenological approach for
-          recovering arbitrary gravitational-wave millilensing configurations'
-      authors:
-          - Anna Liu
-          - '**Isaac C.F. Wong**'
-          - Samson H.W. Leong
-          - Anupreeta More
-          - Otto A. Hannuksela
-          - Tjonnie G.F. Li
-      venue: Mon.Not.Roy.Astron.Soc. 525, 4149 (2023)
-      year: 2023
-      type: journal
-      doi: 10.1093/mnras/stad1302
-      arxiv: '2302.09870'
-      key: doi:10.1093/mnras/stad1302
-      source: inspire
-      claimed: true
-      author_count: 6
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1093/mnras/stad1302
-          - label: arXiv
-            url: https://arxiv.org/abs/2302.09870
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/2634770
-    - include: true
-      highlight: false
-      title: Signal space in the triangular network of the Einstein Telescope
-      authors:
-          - '**Isaac C.F. Wong**'
-          - Tjonnie G.F. Li
-      venue: Phys.Rev.D 105, 084002 (2022)
-      year: 2022
-      type: journal
-      doi: 10.1103/PhysRevD.105.084002
-      arxiv: '2108.05108'
-      key: doi:10.1103/PhysRevD.105.084002
-      source: inspire
-      claimed: true
-      author_count: 2
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevD.105.084002
-          - label: arXiv
-            url: https://arxiv.org/abs/2108.05108
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/1903602
-    - include: true
-      highlight: false
-      title:
-          Null-stream-based Bayesian Unmodeled Framework to Probe Generic
-          Gravitational-wave Polarizations
-      authors:
-          - '**Isaac C.F. Wong**'
-          - Peter T.H. Pang
-          - Rico K.L. Lo
-          - Tjonnie G.F. Li
-          - Chris Van Den Broeck
-      venue: arXiv:2105.09485
-      year: 2021
-      type: preprint
-      arxiv: '2105.09485'
-      key: arxiv:2105.09485
-      source: inspire
-      claimed: true
-      author_count: 5
-      collaboration: false
-      links:
-          - label: arXiv
-            url: https://arxiv.org/abs/2105.09485
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/1864405
-    - include: true
-      highlight: false
-      title:
-          Generic searches for alternative gravitational wave polarizations with
-          networks of interferometric detectors
-      authors:
-          - Peter T.H. Pang
-          - Rico K.L. Lo
-          - '**Isaac C.F. Wong**'
-          - Tjonnie G.F. Li
-          - Chris Van Den Broeck
-      venue: Phys.Rev.D 101, 104055 (2020)
-      year: 2020
-      type: journal
-      doi: 10.1103/PhysRevD.101.104055
-      arxiv: '2003.07375'
-      key: doi:10.1103/PhysRevD.101.104055
-      source: inspire
-      claimed: true
-      author_count: 5
-      collaboration: false
-      links:
-          - label: DOI
-            url: https://doi.org/10.1103/PhysRevD.101.104055
-          - label: arXiv
-            url: https://arxiv.org/abs/2003.07375
-          - label: INSPIRE
-            url: https://inspirehep.net/literature/1785823
+- include: true
+  highlight: false
+  title: The Science of the Einstein Telescope
+  authors:
+  - ET (incl. **C. F. Wong**)
+  venue: JCAP 03, 081 (2026)
+  year: 2026
+  type: journal
+  doi: 10.1088/1475-7516/2026/03/081
+  arxiv: '2503.12263'
+  key: doi:10.1088/1475-7516/2026/03/081
+  source: inspire
+  claimed: true
+  author_count: 489
+  collaboration: true
+  links:
+  - label: DOI
+    url: https://doi.org/10.1088/1475-7516/2026/03/081
+  - label: arXiv
+    url: https://arxiv.org/abs/2503.12263
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2901213
+- include: true
+  highlight: false
+  title: 'GWTC-4.0: Tests of General Relativity. III. Tests of the Remnants'
+  authors:
+  - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
+  venue: arXiv:2603.19021
+  year: 2026
+  type: preprint
+  arxiv: '2603.19021'
+  key: arxiv:2603.19021
+  source: inspire
+  claimed: true
+  author_count: 1779
+  collaboration: true
+  links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2603.19021
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/3131604
+- include: true
+  highlight: false
+  title: 'GWTC-4.0: Tests of General Relativity. II. Parameterized Tests'
+  authors:
+  - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
+  venue: arXiv:2603.19020
+  year: 2026
+  type: preprint
+  arxiv: '2603.19020'
+  key: arxiv:2603.19020
+  source: inspire
+  claimed: true
+  author_count: 1783
+  collaboration: true
+  links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2603.19020
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/3131614
+- include: true
+  highlight: false
+  title: 'GWTC-4.0: Tests of General Relativity. I. Overview and General Tests'
+  authors:
+  - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
+  venue: arXiv:2603.19019
+  year: 2026
+  type: preprint
+  arxiv: '2603.19019'
+  key: arxiv:2603.19019
+  source: inspire
+  claimed: true
+  author_count: 1781
+  collaboration: true
+  links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2603.19019
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/3131608
+- include: true
+  highlight: false
+  title: Using overlap of sky localization probability maps for filtering potentially lensed pairs of gravitational-wave signals
+  authors:
+  - Henry W.Y. Wong
+  - Lok W.L. Chan
+  - '**Isaac C.F. Wong**'
+  - Rico K.L. Lo
+  - Tjonnie G.F. Li
+  venue: Phys.Rev.D 112, 124005 (2025)
+  year: 2025
+  type: journal
+  doi: 10.1103/qc7y-z9hy
+  arxiv: '2112.05932'
+  key: doi:10.1103/qc7y-z9hy
+  source: inspire
+  claimed: true
+  author_count: 5
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/qc7y-z9hy
+  - label: arXiv
+    url: https://arxiv.org/abs/2112.05932
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/1989043
+- include: true
+  highlight: false
+  title: Tests of General Relativity with GWTC-3
+  authors:
+  - LIGO Scientific, VIRGO, KAGRA (incl. **C. F. Wong**)
+  venue: Phys.Rev.D 112, 084080 (2025)
+  year: 2025
+  type: journal
+  doi: 10.1103/PhysRevD.112.084080
+  arxiv: '2112.06861'
+  key: doi:10.1103/PhysRevD.112.084080
+  source: inspire
+  claimed: true
+  author_count: 1682
+  collaboration: true
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevD.112.084080
+  - label: arXiv
+    url: https://arxiv.org/abs/2112.06861
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/1989112
+- include: true
+  highlight: false
+  title: Potential impact of noise correlation in next-generation gravitational wave detectors
+  authors:
+  - '**Isaac C.F. Wong**'
+  - Peter T.H. Pang
+  - Milan Wils
+  - Francesco Cireddu
+  - Walter Del Pozzo
+  - Tjonnie G.F. Li
+  venue: Phys.Rev.D 111, 044046 (2025)
+  year: 2025
+  type: journal
+  doi: 10.1103/PhysRevD.111.044046
+  arxiv: '2407.08728'
+  key: doi:10.1103/PhysRevD.111.044046
+  source: inspire
+  claimed: true
+  author_count: 6
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevD.111.044046
+  - label: arXiv
+    url: https://arxiv.org/abs/2407.08728
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2806882
+- include: true
+  highlight: false
+  title: Null-stream-based third-generation-ready glitch mitigation for gravitational wave measurements
+  authors:
+  - Harsh Narola
+  - Thibeau Wouters
+  - Luca Negri
+  - Melissa Lopez
+  - Tom Dooney
+  - Francesco Cireddu
+  - Milan Wils
+  - '**Isaac C.F. Wong**'
+  - Peter T.H. Pang
+  - Justin Janquart
+  - Anuradha Samajdar
+  - Chris Van Den Broeck
+  - Tjonnie G.F. Li
+  venue: Phys.Rev.D 112, 024079 (2025)
+  year: 2025
+  type: journal
+  doi: 10.1103/l6tp-ykxp
+  arxiv: '2411.15506'
+  key: doi:10.1103/l6tp-ykxp
+  source: inspire
+  claimed: true
+  author_count: 13
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/l6tp-ykxp
+  - label: arXiv
+    url: https://arxiv.org/abs/2411.15506
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2851694
+- include: true
+  highlight: false
+  title: Bayesian Calibration of Gravitational-Wave Detectors Using Null Streams Without Waveform Assumptions
+  authors:
+  - '**Isaac C.F. Wong**'
+  - Francesco Cireddu
+  - Milan Wils
+  - Tom Colemont
+  - Harsh Narola
+  - Chris Van Den Broeck
+  - Tjonnie G.F. Li
+  venue: arXiv:2510.06327
+  year: 2025
+  type: preprint
+  arxiv: '2510.06327'
+  key: arxiv:2510.06327
+  source: inspire
+  claimed: true
+  author_count: 7
+  collaboration: false
+  links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2510.06327
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/3064782
+- include: true
+  highlight: false
+  title: Likelihood for a network of gravitational-wave detectors with correlated noise
+  authors:
+  - Francesco Cireddu
+  - Milan Wils
+  - '**Isaac C.F. Wong**'
+  - Peter T.H. Pang
+  - Tjonnie G.F. Li
+  - Walter Del Pozzo
+  venue: Phys.Rev.D 110, 104060 (2024)
+  year: 2024
+  type: journal
+  doi: 10.1103/PhysRevD.110.104060
+  arxiv: '2312.14614'
+  key: doi:10.1103/PhysRevD.110.104060
+  source: inspire
+  claimed: true
+  author_count: 6
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevD.110.104060
+  - label: arXiv
+    url: https://arxiv.org/abs/2312.14614
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2740429
+- include: true
+  highlight: false
+  title: Searching for vector boson-star mergers within LIGO-Virgo intermediate-mass black-hole merger candidates
+  authors:
+  - Juan Calderon Bustillo
+  - Nicolas Sanchis-Gual
+  - Samson H.W. Leong
+  - Koustav Chandra
+  - Alejandro Torres-Forne
+  - Jose A. Font
+  - Carlos Herdeiro
+  - Eugen Radu
+  - '**Isaac C.F. Wong**'
+  - Tjonnie G.F. Li
+  venue: Phys.Rev.D 108, 123020 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1103/PhysRevD.108.123020
+  arxiv: '2206.02551'
+  key: doi:10.1103/PhysRevD.108.123020
+  source: inspire
+  claimed: true
+  author_count: 10
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevD.108.123020
+  - label: arXiv
+    url: https://arxiv.org/abs/2206.02551
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2091701
+- include: true
+  highlight: false
+  title: Gravitational-Wave Parameter Inference with the Newman-Penrose Scalar
+  authors:
+  - Juan Calderon Bustillo
+  - '**Isaac C.F. Wong**'
+  - Nicolas Sanchis-Gual
+  - Samson H.W. Leong
+  - Alejandro Torres-Forne
+  - Koustav Chandra
+  - Jose A. Font
+  - Carlos Herdeiro
+  - Eugen Radu
+  - Tjonnie G.F. Li
+  venue: Phys.Rev.X 13, 041048 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1103/PhysRevX.13.041048
+  arxiv: '2205.15029'
+  key: doi:10.1103/PhysRevX.13.041048
+  source: inspire
+  claimed: true
+  author_count: 10
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevX.13.041048
+  - label: arXiv
+    url: https://arxiv.org/abs/2205.15029
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2089074
+- include: true
+  highlight: false
+  title: 'Exploring the hidden Universe: a novel phenomenological approach for recovering arbitrary gravitational-wave millilensing
+    configurations'
+  authors:
+  - Anna Liu
+  - '**Isaac C.F. Wong**'
+  - Samson H.W. Leong
+  - Anupreeta More
+  - Otto A. Hannuksela
+  - Tjonnie G.F. Li
+  venue: Mon.Not.Roy.Astron.Soc. 525, 4149 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1093/mnras/stad1302
+  arxiv: '2302.09870'
+  key: doi:10.1093/mnras/stad1302
+  source: inspire
+  claimed: true
+  author_count: 6
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1093/mnras/stad1302
+  - label: arXiv
+    url: https://arxiv.org/abs/2302.09870
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/2634770
+- include: true
+  highlight: false
+  title: Signal space in the triangular network of the Einstein Telescope
+  authors:
+  - '**Isaac C.F. Wong**'
+  - Tjonnie G.F. Li
+  venue: Phys.Rev.D 105, 084002 (2022)
+  year: 2022
+  type: journal
+  doi: 10.1103/PhysRevD.105.084002
+  arxiv: '2108.05108'
+  key: doi:10.1103/PhysRevD.105.084002
+  source: inspire
+  claimed: true
+  author_count: 2
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevD.105.084002
+  - label: arXiv
+    url: https://arxiv.org/abs/2108.05108
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/1903602
+- include: true
+  highlight: false
+  title: Null-stream-based Bayesian Unmodeled Framework to Probe Generic Gravitational-wave Polarizations
+  authors:
+  - '**Isaac C.F. Wong**'
+  - Peter T.H. Pang
+  - Rico K.L. Lo
+  - Tjonnie G.F. Li
+  - Chris Van Den Broeck
+  venue: arXiv:2105.09485
+  year: 2021
+  type: preprint
+  arxiv: '2105.09485'
+  key: arxiv:2105.09485
+  source: inspire
+  claimed: true
+  author_count: 5
+  collaboration: false
+  links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2105.09485
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/1864405
+- include: true
+  highlight: false
+  title: Generic searches for alternative gravitational wave polarizations with networks of interferometric detectors
+  authors:
+  - Peter T.H. Pang
+  - Rico K.L. Lo
+  - '**Isaac C.F. Wong**'
+  - Tjonnie G.F. Li
+  - Chris Van Den Broeck
+  venue: Phys.Rev.D 101, 104055 (2020)
+  year: 2020
+  type: journal
+  doi: 10.1103/PhysRevD.101.104055
+  arxiv: '2003.07375'
+  key: doi:10.1103/PhysRevD.101.104055
+  source: inspire
+  claimed: true
+  author_count: 5
+  collaboration: false
+  links:
+  - label: DOI
+    url: https://doi.org/10.1103/PhysRevD.101.104055
+  - label: arXiv
+    url: https://arxiv.org/abs/2003.07375
+  - label: INSPIRE
+    url: https://inspirehep.net/literature/1785823
