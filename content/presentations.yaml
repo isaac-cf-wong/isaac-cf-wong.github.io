@@ -5,6 +5,14 @@
 # Validated against schemas/presentations.schema.json.
 
 items:
+    - kind: 'talk'
+      title:
+          'The Einstein Telescope: Listening to the Universe through Extreme
+          Precision Sensing and Signal Processing'
+      event: '3rd WaveCoRE PhD Symposium'
+      location: 'KU Leuven Campus Bruges, Belgium'
+      date: '2026-07-02'
+      url: 'https://isaac-cf-wong.github.io/20260702-wavecore-phd-symposium-einstein-telescope/'
     - kind: 'workshop'
       title: 'gwmock — SGWB Mock Data Challenge'
       event: 'ET Cosmology Division Online Workshop'
