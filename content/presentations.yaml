@@ -19,3 +19,18 @@ items:
       location: 'Online'
       date: '2026-06-22'
       url: 'https://isaac-cf-wong.github.io/20260622-et-cosmology-div-online-workshop-sgwb/'
+    - kind: 'workshop'
+      title:
+          'gwmock — Mock data challenges for the Einstein Telescope — hands-on'
+      event: 'Leuven GW Workshop'
+      location: 'KU Leuven, Belgium'
+      date: '2026-07-06'
+      url: 'https://isaac-cf-wong.github.io/20260706-leuven-gw-workshop-gwmock/'
+    - kind: 'workshop'
+      title:
+          'gwmock — A Modular Framework for Gravitational-Wave Mock Data
+          Generation'
+      event: 'FWO-IRI GW Workshop on Computing Infrastructure'
+      location: 'KU Leuven, Belgium'
+      date: '2026-07-08'
+      url: 'https://isaac-cf-wong.github.io/20260708-fwo-iri-workshop-on-computing-infrastructure-gwmock/'
