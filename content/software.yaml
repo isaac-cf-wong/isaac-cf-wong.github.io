@@ -131,6 +131,28 @@ items:
                 url: 'https://github.com/marketplace/actions/detect-git-changes-action',
             }
 
+    - name: 'dependency-support-policy-action'
+      category: 'github actions'
+      summary:
+          'Manage rolling minimum-supported versions for Python projects, as a
+          standalone CLI and a GitHub Action, with built-in SPEC 0 support.'
+      role: 'maintainer'
+      tags: ['github-actions', 'python', 'ci']
+      license: 'BSD-3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/dependency-support-policy-action',
+            }
+          - {
+                label: 'marketplace',
+                url: 'https://github.com/marketplace/actions/dependency-support-policy',
+            }
+          - {
+                label: 'pypi',
+                url: 'https://pypi.org/project/dependency-support-policy/',
+            }
+
     - name: 'python-package-template'
       category: 'templates'
       summary: 'A template for Python projects.'
