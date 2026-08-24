@@ -59,6 +59,11 @@ source = "uv-dynamic-versioning"
 [tool.hatch.build.targets.wheel]
 packages = ["src/isaac_cf_wong"]
 
+[tool.dependency-support-policy]
+policy = "spec0"
+groups = ["project", "optional"]
+lock = "minimal"
+
 [tool.coverage.run]
 branch = true
 
@@ -80,9 +85,9 @@ markers = [
 ]
 
 [tool.ruff]
-line-length = 120 # Matches Black's default
+line-length = 120        # Matches Black's default
 target-version = "py310" # Align with CI (3.10–3.12) and requires-python (>=3.10)
-fix = true # Enable autofix
+fix = true               # Enable autofix
 
 [tool.ruff.lint]
 extend-select = [
