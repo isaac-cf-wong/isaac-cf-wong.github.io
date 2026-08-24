@@ -82,7 +82,10 @@ markers = [
 [tool.ruff]
 line-length = 120 # Matches Black's default
 target-version = "py310" # Align with CI (3.10–3.12) and requires-python (>=3.10)
-lint.extend-select = [
+fix = true # Enable autofix
+
+[tool.ruff.lint]
+extend-select = [
   "E",
   "F",
   "W",   # pycodestyle errors and warnings
@@ -101,22 +104,13 @@ lint.extend-select = [
   "D",   # Doc style
   "S",   # Security
 ]
-lint.ignore = [
+ignore = [
   "E501", # Line length (handled by formatter)
   "C901", # Disable overly strict complexity checks (optional, adjust as needed)
   "D203", # Incompatible with D211 (no blank line before class); keep D211
   "D213", # Incompatible with D212 (multi-line summary on first line); keep D212
 ]
-lint.unfixable = [] # List rules that should not be autofixed, if any
-fix = true # Enable autofix
-
-[tool.ruff.format]
-quote-style = "double"       # Use double quotes for strings
-indent-style = "space"       # Use spaces for indentation
-docstring-code-format = true # Format code in docstrings
-
-[tool.uv]
-required-version = ">=0.10.6"
+unfixable = [] # List rules that should not be autofixed, if any
 
 [tool.ruff.lint.per-file-ignores]
 # Ignore specific rules in the tests directory
@@ -129,3 +123,11 @@ required-version = ">=0.10.6"
 # Typer reads option/argument defaults from the function signature, so calls in
 # defaults (typer.Option(...), Path.cwd()) are the intended pattern here.
 "src/isaac_cf_wong/cli/*" = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"       # Use double quotes for strings
+indent-style = "space"       # Use spaces for indentation
+docstring-code-format = true # Format code in docstrings
+
+[tool.uv]
+required-version = ">=0.10.6"
