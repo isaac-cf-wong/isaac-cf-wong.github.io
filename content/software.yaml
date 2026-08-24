@@ -174,7 +174,7 @@ items:
       summary: 'A template for Rust projects.'
       role: 'maintainer'
       tags: ['rust', 'template']
-      license: 'MIT'
+      license: 'BSD 3-Clause'
       links:
           - {
                 label: 'use template',
