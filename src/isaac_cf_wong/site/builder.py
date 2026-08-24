@@ -14,7 +14,7 @@ from __future__ import annotations
 import hashlib
 import re
 import shutil
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from itertools import groupby
 from pathlib import Path
 from typing import Any
@@ -205,10 +205,10 @@ _FEED_MAX_ENTRIES = 30
 def _rfc3339(value: str) -> str | None:
     """Convert a ``YYYY-MM-DD`` date string to an RFC 3339 UTC timestamp."""
     try:
-        parsed = datetime.strptime(value, "%Y-%m-%d")
+        parsed = datetime.strptime(value, "%Y-%m-%d").replace(tzinfo=timezone.utc)
     except (ValueError, TypeError):
         return None
-    return parsed.replace(tzinfo=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return parsed.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _feed_token(*parts: str) -> str:
@@ -291,7 +291,7 @@ def _render_feed(env: Environment, context: dict[str, Any]) -> str:
     """Render the Atom feed XML for the site's recent updates."""
     base = str(context.get("site", {}).get("url", "")).rstrip("/")
     entries = _feed_entries(context)
-    feed_updated = entries[0]["updated"] if entries else f"{date.today().isoformat()}T00:00:00Z"
+    feed_updated = entries[0]["updated"] if entries else f"{datetime.now(tz=timezone.utc).date().isoformat()}T00:00:00Z"
     return env.get_template("feed.xml").render(
         site=context.get("site", {}),
         profile=context.get("profile", {}),
