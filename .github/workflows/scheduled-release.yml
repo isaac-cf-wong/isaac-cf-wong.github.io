@@ -14,13 +14,13 @@ jobs:
         outputs:
             has-changes: ${{ steps.check_commits.outputs.has-changes }}
         steps:
-            - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+            - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
               with:
                   fetch-depth: 0
 
             - name: Check for new commits
               id: check_commits
-              uses: isaac-cf-wong/detect-git-changes-action@98bdd60bce9f8ef0220da336e3df1f8947542bb6 # v0.0.11
+              uses: isaac-cf-wong/detect-git-changes-action@604bb375bf2cef3116a2505f30cc6c5965a8fcba # v0.0.18
               with:
                   use-latest-tag: true
 
@@ -44,7 +44,7 @@ jobs:
         outputs:
             new_tag: ${{ steps.tag_version.outputs.new_tag }}
         steps:
-            - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+            - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
               with:
                   fetch-depth: 0
 
