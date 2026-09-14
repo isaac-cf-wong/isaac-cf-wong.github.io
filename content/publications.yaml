@@ -67,7 +67,7 @@ items:
       key: arxiv:2603.19020
       source: inspire
       claimed: true
-      author_count: 1783
+      author_count: 1785
       collaboration: true
       links:
           - label: arXiv
