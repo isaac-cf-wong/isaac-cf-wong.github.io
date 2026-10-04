@@ -28,7 +28,7 @@ dynamic = ["version"]
 
 [dependency-groups]
 dev = [
-  "ruff>=0.16.9",
+  "ruff>=0.16.10",
   "prek>=0.5.4",
   "pytest-github-actions-annotate-failures>=0.4.2",
   "pytest-cov>=7.1.0",
