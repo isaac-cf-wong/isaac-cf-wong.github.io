@@ -72,6 +72,44 @@ items:
             }
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-noise/' }
 
+    - name: 'gwmock-data'
+      category: 'research packages'
+      summary:
+          'Shared data structures for the gwmock packages, so every package reads and writes them the same way.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'BSD-3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/Leuven-Gravity-Institute/gwmock-data',
+            }
+          - {
+                label: 'docs',
+                url: 'https://leuven-gravity-institute.github.io/gwmock-data/',
+            }
+          - {
+                label: 'pypi',
+                url: 'https://pypi.org/project/gwmock-data/',
+            }
+
+    - name: 'gwmock-sevn'
+      category: 'research packages'
+      summary:
+          'SEVN, the binary population-synthesis code of Iorio et al. (2023), as an installable Python package.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'BSD-3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/Leuven-Gravity-Institute/gwmock-sevn',
+            }
+          - {
+                label: 'docs',
+                url: 'https://leuven-gravity-institute.github.io/gwmock-sevn/',
+            }
+
     - name: 'gwmock-benchmark'
       category: 'research packages'
       summary:
@@ -120,6 +158,27 @@ items:
                 url: 'https://leuven-gravity-institute.github.io/nullcal/',
             }
           - { label: 'pypi', url: 'https://pypi.org/project/nullcal/' }
+
+    - name: 'hydrax'
+      category: 'research packages'
+      summary:
+          'A Rust package for developing verified simulations of gravitational waves from core-collapse supernovae.'
+      role: 'maintainer'
+      tags: ['rust', 'gravitational-waves']
+      license: 'BSD-3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/hydrax',
+            }
+          - {
+                label: 'docs',
+                url: 'https://isaac-cf-wong.com/hydrax/',
+            }
+          - {
+                label: 'crates.io',
+                url: 'https://crates.io/crates/hydrax',
+            }
 
     - name: 'ripple'
       category: 'research packages'
