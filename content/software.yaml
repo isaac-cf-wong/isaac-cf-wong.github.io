@@ -4,7 +4,7 @@
 #
 # Each item:
 #   name      (required) the package / repository name
-#   category  (required) the group heading, e.g. 'Packages', 'Templates', 'Tools'
+#   category  (required) the group heading, e.g. 'Research packages', 'Templates'
 #   summary   one-line description (Markdown allowed)
 #   role      optional, e.g. 'Maintainer', 'Author', 'Contributor'
 #   license   optional SPDX id shown as a badge, e.g. 'MIT', 'Apache-2.0'
@@ -15,22 +15,8 @@
 # Validated against schemas/software.schema.json.
 
 items:
-    - name: 'bibsync'
-      category: 'packages'
-      summary:
-          'bibsync synchronizes BibTeX files from citation keys in LaTeX
-          sources. It is inspired by adstex, with provider support for both NASA
-          ADS and InspireHEP.'
-      role: 'maintainer'
-      tags: ['python', 'rust', 'bibtex']
-      license: 'BSD 3-Clause'
-      links:
-          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/bibsync' }
-          - { label: 'crates.io', url: 'https://crates.io/crates/bibsync' }
-          - { label: 'pypi', url: 'https://pypi.org/project/bibsync/' }
-
     - name: 'gwmock'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'A python package for generating mock data challenge datasets for the
           gravitational-wave community.'
@@ -45,7 +31,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock/' }
 
     - name: 'gwmock-signal'
-      category: 'packages'
+      category: 'research packages'
       summary: 'A Python package for simulating gravitational wave signals'
       role: 'maintainer'
       tags: ['python', 'gravitational-waves']
@@ -58,7 +44,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-signal/' }
 
     - name: 'gwmock-pop'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'A Python package for simulating populations of gravitational-wave
           sources.'
@@ -73,7 +59,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-pop/' }
 
     - name: 'gwmock-noise'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'A Python package for simulating gravitational wave detector noise.'
       role: 'maintainer'
@@ -87,7 +73,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-noise/' }
 
     - name: 'gwmock-benchmark'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'Shared benchmarking for the gwmock packages: one harness, the
           committed results, and the rendered report site — in one place.'
@@ -102,7 +88,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-benchmark/' }
 
     - name: 'nullpol'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'Null-stream-based, unmodeled Bayesian framework for probing generic
           gravitational-wave polarizations.'
@@ -116,7 +102,7 @@ items:
     # --- Replace the example below with your real GitHub Actions. ---
 
     - name: 'nullcal'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'Constrains calibration errors of a closed-geometry network of
           gravitational-wave detectors with the null stream and a Bayesian
@@ -136,7 +122,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/nullcal/' }
 
     - name: 'ripple'
-      category: 'packages'
+      category: 'research packages'
       summary: 'Differentiable gravitational waveforms in JAX.'
       role: 'contributor'
       tags: ['python', 'jax', 'gravitational-waves']
@@ -147,7 +133,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/ripplegw/' }
 
     - name: 'Jim'
-      category: 'packages'
+      category: 'research packages'
       summary: 'Gravitational-wave data analysis tools in JAX.'
       role: 'contributor'
       tags: ['python', 'jax', 'gravitational-waves']
@@ -157,8 +143,22 @@ items:
           - { label: 'docs', url: 'https://gw-jax-team.github.io/Jim/' }
           - { label: 'pypi', url: 'https://pypi.org/project/jimgw/' }
 
+    - name: 'bibsync'
+      category: 'general-purpose packages'
+      summary:
+          'bibsync synchronizes BibTeX files from citation keys in LaTeX
+          sources. It is inspired by adstex, with provider support for both NASA
+          ADS and InspireHEP.'
+      role: 'maintainer'
+      tags: ['python', 'rust', 'bibtex']
+      license: 'BSD 3-Clause'
+      links:
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/bibsync' }
+          - { label: 'crates.io', url: 'https://crates.io/crates/bibsync' }
+          - { label: 'pypi', url: 'https://pypi.org/project/bibsync/' }
+
     - name: 'python-gitea'
-      category: 'packages'
+      category: 'general-purpose packages'
       summary:
           'A Python client and command-line tool for the Gitea API, for
           automating repositories, issues and project boards.'
@@ -171,7 +171,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/python-gitea/' }
 
     - name: 'detect-git-changes-action'
-      category: 'github actions'
+      category: 'GitHub actions'
       summary: 'A GitHub action to detect changes in a git repository.'
       role: 'maintainer'
       tags: ['github-actions', 'ci']
@@ -187,7 +187,7 @@ items:
             }
 
     - name: 'dependency-support-policy-action'
-      category: 'github actions'
+      category: 'GitHub actions'
       summary:
           'Manage rolling minimum-supported versions for Python projects, as a
           standalone CLI and a GitHub Action, with built-in SPEC 0 support.'
