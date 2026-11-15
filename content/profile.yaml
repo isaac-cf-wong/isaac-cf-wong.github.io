@@ -39,7 +39,7 @@ site:
         - slug: 'cv'
           label: 'CV'
           nav: true
-          sections: ['experience', 'education', 'awards']
+          sections: ['experience', 'education', 'supervision', 'service', 'awards']
         - slug: 'projects'
           label: 'Projects'
           nav: true

@@ -7,6 +7,7 @@ The build is deliberately small and explicit:
 3. Render one page per ``site.pages`` entry to ``<slug>/index.html``.
 4. Write an Atom feed of recent updates to ``feed.xml``.
 5. Copy ``assets/`` into the output and add a ``.nojekyll`` marker.
+6. Compile the CV (``templates/cv.typ``) to the PDF that ``profile.cv`` links to.
 """
 
 from __future__ import annotations
@@ -24,6 +25,7 @@ from jinja2 import ChainableUndefined, Environment, FileSystemLoader, select_aut
 from markupsafe import Markup
 
 from isaac_cf_wong.site.content import load_content
+from isaac_cf_wong.site.cv import CV_TEMPLATE, add_cv_filters, build_cv_pdf
 from isaac_cf_wong.site.paths import SitePaths
 
 _MD_EXTENSIONS = ["extra", "sane_lists", "smarty"]
@@ -55,6 +57,7 @@ def _make_environment(templates_dir: Path) -> Environment:
     )
     env.filters["markdown"] = _render_markdown
     env.filters["markdown_inline"] = _render_markdown_inline
+    add_cv_filters(env)
     return env
 
 
@@ -69,9 +72,14 @@ def _group_software(content: dict[str, Any]) -> list[dict[str, Any]]:
     Returns a list of ``{"category": str, "items": [...]}`` so the template can
     render each category under its own heading.
     """
+    return _group_by_category(_items(content, "software"))
+
+
+def _group_by_category(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Group items by ``category``, preserving first-appearance order."""
     groups: list[dict[str, Any]] = []
     index: dict[str, dict[str, Any]] = {}
-    for item in _items(content, "software"):
+    for item in items:
         category = item.get("category", "")
         group = index.get(category)
         if group is None:
@@ -196,6 +204,8 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
         "projects": projects,
         "teaching": _items(content, "teaching"),
         "software": _group_software(content),
+        "supervision": _items(content, "supervision"),
+        "service": _group_by_category(_items(content, "service")),
     }
 
 
@@ -303,6 +313,28 @@ def _render_feed(env: Environment, context: dict[str, Any]) -> str:
     )
 
 
+def _cv_output_path(output: Path, context: dict[str, Any]) -> Path | None:
+    """Return where the CV PDF goes in the output, or ``None`` if it is not built.
+
+    The CV is built when ``profile.cv`` is a site-root path ending in ``.pdf``
+    (e.g. ``/assets/cv.pdf``); an external URL or an empty value skips it.
+    """
+    link = str(context.get("profile", {}).get("cv") or "")
+    if not link.startswith("/") or not link.endswith(".pdf"):
+        return None
+    return output / link.lstrip("/")
+
+
+def make_environment(paths: SitePaths) -> Environment:
+    """Return the Jinja2 environment used for the site and the CV."""
+    return _make_environment(paths.templates)
+
+
+def build_context(paths: SitePaths) -> dict[str, Any]:
+    """Load the content and return the template context."""
+    return _build_context(load_content(paths.content))
+
+
 def build_site(paths: SitePaths) -> Path:
     """Build the site and return the path to the output directory.
 
@@ -337,6 +369,10 @@ def build_site(paths: SitePaths) -> Path:
 
     if paths.assets.is_dir():
         shutil.copytree(paths.assets, output / paths.assets_dir, dirs_exist_ok=True)
+
+    cv_path = _cv_output_path(output, context)
+    if cv_path is not None and (paths.templates / CV_TEMPLATE).is_file():
+        build_cv_pdf(env, context, cv_path)
 
     # Disable GitHub Pages' default Jekyll processing of the pre-built output.
     (output / ".nojekyll").write_text("", encoding="utf-8")

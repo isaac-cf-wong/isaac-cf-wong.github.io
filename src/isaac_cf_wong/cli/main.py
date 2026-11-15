@@ -4,6 +4,7 @@ Commands:
     build               Render the site from content into the output directory.
     validate            Check the content files against their JSON Schemas.
     serve               Build, then serve the output locally with live preview.
+    cv                  Compile the CV to a PDF from the content.
     publications sync   Refresh the publication list from INSPIRE-HEP.
 """
 
@@ -18,7 +19,9 @@ from pathlib import Path
 import typer
 
 from isaac_cf_wong.site import SitePaths, build_site, validate_content
+from isaac_cf_wong.site.builder import build_context, make_environment
 from isaac_cf_wong.site.content import load_yaml
+from isaac_cf_wong.site.cv import build_cv_pdf
 from isaac_cf_wong.site.publications_sync import sync_publications
 from isaac_cf_wong.site.validate import validate_or_raise
 
@@ -66,6 +69,23 @@ def build(
             raise typer.Exit(code=1) from exc
     out = build_site(paths)
     typer.secho(f"Built site -> {out}", fg=typer.colors.GREEN)
+
+
+@app.command()
+def cv(
+    root: Path = typer.Option(Path.cwd(), help="Project root directory."),
+    output: Path = typer.Option(Path("cv.pdf"), help="Path of the PDF to write."),
+) -> None:
+    """Compile the CV to a PDF from the content files."""
+    paths = _paths(root, "_site")
+    try:
+        validate_or_raise(paths.content, paths.schemas)
+    except Exception as exc:
+        typer.secho("Content validation failed:", fg=typer.colors.RED, bold=True)
+        typer.secho(str(exc), fg=typer.colors.RED)
+        raise typer.Exit(code=1) from exc
+    out = build_cv_pdf(make_environment(paths), build_context(paths), output.resolve())
+    typer.secho(f"Built CV -> {out}", fg=typer.colors.GREEN)
 
 
 @app.command()

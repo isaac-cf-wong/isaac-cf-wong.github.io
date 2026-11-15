@@ -19,7 +19,7 @@ data — not HTML.
 | `content/`           | The single source of truth. One YAML file per kind of information.                                                    |
 | `schemas/`           | A JSON Schema for each content file, defining its allowed structure.                                                  |
 | `templates/`         | Jinja2 templates: a shared layout, the page shell, and one partial per section (`templates/partials/section_*.html`). |
-| `assets/`            | CSS, JavaScript, images, and files (e.g. the CV) served as-is.                                                        |
+| `assets/`            | CSS, JavaScript, images, and files served as-is.                                                                      |
 | `src/isaac_cf_wong/` | The small generator and command-line interface.                                                                       |
 | `_site/`             | The rendered output (generated; not committed).                                                                       |
 
@@ -54,6 +54,8 @@ fields.
 | `content/education.yaml`     | Degrees.                                                                                               |
 | `content/projects.yaml`      | Research projects and software.                                                                        |
 | `content/teaching.yaml`      | Courses taught.                                                                                        |
+| `content/supervision.yaml`   | Students supervised or mentored.                                                                       |
+| `content/service.yaml`       | Peer review, collaboration memberships and other service, grouped by `category`.                       |
 | `content/awards.yaml`        | Awards, honours, grants.                                                                               |
 | `content/presentations.yaml` | Talks and workshops (`kind: talk` or `kind: workshop`).                                                |
 
@@ -103,6 +105,23 @@ The `.github/workflows/sync-publications.yml` workflow runs this weekly (and on
 demand) and opens a pull request when anything changes, so you review new papers
 before they go live.
 
+## CV
+
+The CV is built from the same content files as the site, so it never needs
+editing on its own. `templates/cv.typ` is a Jinja2 template that writes
+[Typst](https://typst.app/) source; the build compiles it with the `typst`
+package to the path that `profile.cv` links to (by default `/assets/cv.pdf`).
+Set `profile.cv` to an external URL or to `""` to skip it. It shows positions,
+education, publications (journal articles, preprints and collaboration papers),
+supervision, software, talks and workshops, service, and, when they have
+entries, teaching and awards.
+
+To write the CV on its own, for example to send it by email:
+
+```bash
+uv run isaac-cf-wong cv --output cv.pdf
+```
+
 ## Working locally
 
 This project uses [uv](https://docs.astral.sh/uv/).
@@ -113,6 +132,7 @@ uv sync                          # install dependencies
 uv run isaac-cf-wong validate    # check content against the schemas
 uv run isaac-cf-wong build       # render the site into _site/
 uv run isaac-cf-wong serve       # build and preview at http://localhost:8000
+uv run isaac-cf-wong cv          # write the CV to cv.pdf
 ```
 
 `build` validates the content first and fails fast if anything is malformed.

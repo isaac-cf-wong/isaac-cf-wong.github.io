@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "service.schema.json",
+    "title": "Service and collaborations",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["category", "title"],
+                "additionalProperties": false,
+                "properties": {
+                    "category": { "type": "string", "minLength": 1 },
+                    "title": { "type": "string", "minLength": 1 },
+                    "start": { "type": "string" },
+                    "end": { "type": "string" },
+                    "detail": { "type": "string" },
+                    "url": { "type": "string" }
+                }
+            }
+        }
+    }
+}

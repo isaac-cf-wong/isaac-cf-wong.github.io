@@ -1,0 +1,88 @@
+# Students supervised or mentored, newest first as listed.
+# Validated against schemas/supervision.schema.json.
+#
+# Fields:
+#   name:        student's name
+#   institution: where the student is enrolled
+#   level:       e.g. "Master's thesis", "MPhil", "Undergraduate project"
+#   role:        your role, e.g. "Promotor", "Daily advisor", "Mentor"
+#   topic:       the project (optional)
+#   start, end:  years; use 'Present' for an ongoing project (end optional)
+#   note:        one short line on the outcome (optional)
+
+items:
+    - name: 'Daan Van Waesberghe'
+      institution: 'KU Leuven'
+      level: "Master's thesis"
+      role: 'Promotor'
+      topic: 'Newtonian-noise mitigation with machine learning'
+      start: '2026'
+      end: 'Present'
+
+    - name: 'Brian Cheng'
+      institution: 'The Chinese University of Hong Kong'
+      level: 'MPhil project'
+      role: 'Daily advisor'
+      topic: 'Speeding up lensing analyses with sequential MCMC'
+      start: '2026'
+      end: 'Present'
+
+    - name: 'Draz Wang'
+      institution: 'The Chinese University of Hong Kong'
+      level: 'Undergraduate project'
+      role: 'Co-supervisor, with T. Ng'
+      topic: 'Polarization tests with strongly lensed images'
+      start: '2026'
+      end: 'Present'
+
+    - name: 'Ramzi Baaguigui'
+      institution: 'KU Leuven'
+      level: "Master's thesis"
+      role: 'Daily advisor'
+      topic:
+          'Curriculum learning for simulation-based inference of core-collapse
+          supernova signals'
+      start: '2025'
+      end: '2026'
+
+    - name: 'Jarmo Van Acker'
+      institution: 'KU Leuven'
+      level: "Master's thesis"
+      role: 'Daily advisor, with F. Cireddu'
+      topic: 'Deep-learning Newtonian-noise subtraction for the Einstein Telescope'
+      start: '2025'
+      end: '2026'
+
+    - name: 'Shri Krishna Anand'
+      institution: 'KU Leuven'
+      level: "Master's research"
+      role: 'Advisor'
+      topic: 'Einstein Telescope calibration with waveform models'
+      start: '2025'
+      end: 'Present'
+      note: 'Now a PhD student.'
+
+    - name: 'Kata Karácsonyi'
+      institution: 'University of Szeged'
+      level: "Master's project"
+      role: 'Daily advisor'
+      topic: 'Gravitational-wave polarization tests'
+      start: '2025'
+      end: '2026'
+
+    - name: 'Balázs Cirok'
+      institution: 'University of Szeged'
+      level: "Master's project"
+      role: 'Daily advisor'
+      topic: 'Gravitational-wave polarization tests'
+      start: '2024'
+      end: '2026'
+
+    - name: 'Thomas Ng'
+      institution: 'The Chinese University of Hong Kong'
+      level: 'MPhil'
+      role: 'Mentor'
+      topic: 'LIGO–Virgo–KAGRA polarization tests'
+      start: '2023'
+      end: '2026'
+      note: 'Now leads the polarization analysis for GWTC-5.'

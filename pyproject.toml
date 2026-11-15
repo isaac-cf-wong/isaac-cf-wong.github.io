@@ -23,6 +23,7 @@ dependencies = [
   "pyyaml>=6.0.3",
   "jsonschema>=4.26.0",
   "markdown>=3.11.3",
+  "typst>=0.15.2",
 ]
 dynamic = ["version"]
 
