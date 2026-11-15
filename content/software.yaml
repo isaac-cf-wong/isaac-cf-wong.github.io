@@ -299,6 +299,22 @@ items:
                 url: 'https://github.com/isaac-cf-wong/rust-package-template',
             }
 
+    - name: 'cpp-library-template'
+      category: 'templates'
+      summary: 'A template for C++ libraries.'
+      role: 'maintainer'
+      tags: ['cpp', 'template']
+      license: 'BSD 3-Clause'
+      links:
+          - {
+                label: 'use template',
+                url: 'https://github.com/new?template_name=cpp-library-template&template_owner=isaac-cf-wong',
+            }
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/cpp-library-template',
+            }
+
     - name: 'presentation-template'
       category: 'templates'
       summary:
