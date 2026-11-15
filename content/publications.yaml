@@ -51,7 +51,7 @@ items:
             url: https://arxiv.org/abs/2503.12263
           - label: INSPIRE
             url: https://inspirehep.net/literature/2901213
-    - include: true
+    - include: false
       highlight: false
       title: 'GWTC-4.0: Tests of General Relativity. III. Tests of the Remnants'
       authors:
@@ -70,7 +70,7 @@ items:
             url: https://arxiv.org/abs/2603.19021
           - label: INSPIRE
             url: https://inspirehep.net/literature/3131604
-    - include: true
+    - include: false
       highlight: false
       title: 'GWTC-4.0: Tests of General Relativity. II. Parameterized Tests'
       authors:
