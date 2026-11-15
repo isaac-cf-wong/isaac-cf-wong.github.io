@@ -115,6 +115,28 @@ items:
 
     # --- Replace the example below with your real GitHub Actions. ---
 
+    - name: 'ripple'
+      category: 'packages'
+      summary: 'Differentiable gravitational waveforms in JAX.'
+      role: 'contributor'
+      tags: ['python', 'jax', 'gravitational-waves']
+      license: 'GPL-2.0'
+      links:
+          - { label: 'repo', url: 'https://github.com/GW-JAX-Team/ripple' }
+          - { label: 'docs', url: 'https://gw-jax-team.github.io/ripple/' }
+          - { label: 'pypi', url: 'https://pypi.org/project/ripplegw/' }
+
+    - name: 'Jim'
+      category: 'packages'
+      summary: 'Gravitational-wave data analysis tools in JAX.'
+      role: 'contributor'
+      tags: ['python', 'jax', 'gravitational-waves']
+      license: 'MIT'
+      links:
+          - { label: 'repo', url: 'https://github.com/GW-JAX-Team/Jim' }
+          - { label: 'docs', url: 'https://gw-jax-team.github.io/Jim/' }
+          - { label: 'pypi', url: 'https://pypi.org/project/jimgw/' }
+
     - name: 'detect-git-changes-action'
       category: 'github actions'
       summary: 'A GitHub action to detect changes in a git repository.'
