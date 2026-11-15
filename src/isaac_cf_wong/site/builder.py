@@ -204,6 +204,7 @@ def _build_context(content: dict[str, Any]) -> dict[str, Any]:
         "projects": projects,
         "teaching": _items(content, "teaching"),
         "software": _group_software(content),
+        "software_cv": dict((content.get("software") or {}).get("cv") or {}),
         "supervision": _items(content, "supervision"),
         "service": _group_by_category(_items(content, "service")),
     }

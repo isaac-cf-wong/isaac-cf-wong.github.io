@@ -20,6 +20,17 @@
         }
     },
     "properties": {
+        "cv": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "collapse": {
+                    "type": "array",
+                    "items": { "type": "string", "minLength": 1 }
+                },
+                "summary": { "type": "string" }
+            }
+        },
         "items": {
             "type": ["array", "null"],
             "items": {

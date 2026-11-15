@@ -145,3 +145,26 @@ def test_cv_page_and_pdf_show_supervision_and_service(tmp_path: Path) -> None:
     for group in context["service"]:
         assert group["category"] in html
         assert typst_string(group["category"]) in source
+
+
+def test_cv_collapses_the_software_groups_named_in_content(tmp_path: Path) -> None:
+    """The CV replaces the collapsed software groups by the summary line; the site keeps them."""
+    paths = SitePaths(root=ROOT, output_dir=str(tmp_path / "_site"))
+    context = build_context(paths)
+    collapsed = set(context["software_cv"]["collapse"])
+    assert collapsed, "software.yaml collapses no group"
+    source = render_cv_source(make_environment(paths), context)
+    html = (build_site(paths) / "software" / "index.html").read_text(encoding="utf-8")
+    for group in context["software"]:
+        first = group["items"][0]["name"]
+        assert first in html
+        assert (typst_string(first) in source) is (group["category"] not in collapsed)
+    assert typst_inline(context["software_cv"]["summary"]) in source
+
+
+def test_cv_context_keeps_all_software_without_a_collapse_list() -> None:
+    """With no `cv.collapse`, every software group stays and no summary is shown."""
+    groups = [{"category": "a", "items": []}, {"category": "b", "items": []}]
+    result = _cv_context({"software": groups, "software_cv": {"summary": "ignored"}})
+    assert result["cv_software"] == groups
+    assert result["cv_software_summary"] is None

@@ -12,7 +12,17 @@
 #   links     list of {label, url}, e.g. Repo / Docs / PyPI / 'Use template'
 #
 # Set `items: null` to hide the whole section.
+#
+# Optional `cv` block, used only by the CV PDF (the website lists everything):
+#   collapse  categories the CV leaves out, summarised instead by...
+#   summary   one line shown after the remaining groups (Markdown allowed)
 # Validated against schemas/software.schema.json.
+
+cv:
+    collapse: ['GitHub actions', 'templates']
+    summary:
+        'Also maintained: project templates for Python, Rust and C++, a
+        reveal.js presentation template, and two GitHub Actions for CI.'
 
 items:
     - name: 'gwmock'

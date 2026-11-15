@@ -72,11 +72,15 @@ def add_cv_filters(env: Environment) -> None:
 
 
 def _cv_context(context: dict[str, Any]) -> dict[str, Any]:
-    """Split the publication list into the groups the CV shows."""
+    """Split publications into the groups the CV shows, and drop the software groups it collapses."""
     publications = context.get("publications", [])
     individual = [p for p in publications if not p.get("collaboration")]
+    software_cv = context.get("software_cv") or {}
+    collapsed = set(software_cv.get("collapse") or [])
     return {
         **context,
+        "cv_software": [g for g in context.get("software", []) if g["category"] not in collapsed],
+        "cv_software_summary": software_cv.get("summary") if collapsed else None,
         "cv_journal_articles": [p for p in individual if p.get("type") != "preprint"],
         "cv_preprints": [p for p in individual if p.get("type") == "preprint"],
         "cv_collaboration_papers": [p for p in publications if p.get("collaboration")],

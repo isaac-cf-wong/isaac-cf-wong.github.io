@@ -134,16 +134,19 @@
 )
 {% endfor %}
 {% endif %}
-{% if software %}
+{% if cv_software %}
 
 #section("Software")
-{% for group in software %}
+{% for group in cv_software %}
 #text(weight: "bold")[#{{ (group.category[:1] | upper ~ group.category[1:]) | typst_string }}]
 {% for item in group["items"] %}
 - {% if item.links %}#link({{ item.links[0].url | typst_string }})[*#{{ item.name | typst_string }}*]{% else %}*#{{ item.name | typst_string }}*{% endif %}{% if item.role %} (#{{ item.role | typst_string }}){% endif %}{% if item.summary %}: {{ item.summary | typst_inline }}{% endif %}{{ "" }}
 {% endfor %}
 
 {% endfor %}
+{% if cv_software_summary %}
+{{ cv_software_summary | typst_inline }}
+{% endif %}
 {% endif %}
 {% if presentations %}
 
