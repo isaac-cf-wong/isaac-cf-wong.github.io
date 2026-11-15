@@ -35,7 +35,7 @@ _REQUEST_FIELDS = (
     "earliest_date,preprint_date,control_number,citation_count"
 )
 _PAGE_SIZE = 250
-_USER_AGENT = "isaac-cf-wong.github.io publication sync (+https://isaac-cf-wong.github.io)"
+_USER_AGENT = "isaac-cf-wong.com publication sync (+https://isaac-cf-wong.com)"
 
 _DOCUMENT_TYPE_MAP = {
     "article": "journal",
