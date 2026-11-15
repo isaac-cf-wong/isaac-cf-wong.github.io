@@ -2,6 +2,7 @@
     /assets/cv.pdf at build time (src/isaac_cf_wong/site/cv.py).
     Content strings are inserted with the typst_string and typst_inline
     filters, never as raw markup. -#}
+{% from "partials/icons.html" import icon_path %}
 #let accent = rgb("#1f3a5f")
 #set document(title: {{ ("Curriculum vitae: " ~ profile.name) | typst_string }}, author: {{ profile.name | typst_string }})
 #set page(
@@ -17,6 +18,13 @@
 #set text(size: 10pt, lang: "en")
 #set par(justify: false, leading: 0.55em)
 #show link: set text(fill: accent)
+
+// A 24x24 icon from the site's icon set, drawn inline at text height.
+#let icon(d) = box(baseline: 12%, image(
+  bytes("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='" + accent.to-hex() + "' d='" + d + "'/></svg>"),
+  format: "svg",
+  height: 0.95em,
+))
 
 #let section(title) = {
   v(0.9em)
@@ -47,11 +55,11 @@
 {% endif %}
 {% endfor %}
 {% for link in links %}
-    #link({{ link.url | typst_string }})[#{{ (link.url[7:] if link.icon == "email" else link.label) | typst_string }}]{% if not loop.last %} · {% endif %}
+    #icon({{ icon_path(link.icon) | typst_string }})#h(0.25em)#link({{ link.url | typst_string }})[#{{ (link.url[7:] if link.icon == "email" else link.label) | typst_string }}]{% if not loop.last %}#h(0.9em){% endif %}
 
 {% endfor %}
 {% if site.url %}
-    · #link({{ site.url | typst_string }})[#{{ site.url.replace("https://", "").rstrip("/") | typst_string }}]
+    #h(0.9em)#icon({{ icon_path("home") | typst_string }})#h(0.25em)#link({{ site.url | typst_string }})[#{{ site.url.replace("https://", "").rstrip("/") | typst_string }}]
 {% endif %}
   ]
 ]
