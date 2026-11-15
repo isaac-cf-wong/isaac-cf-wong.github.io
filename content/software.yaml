@@ -115,6 +115,26 @@ items:
 
     # --- Replace the example below with your real GitHub Actions. ---
 
+    - name: 'nullcal'
+      category: 'packages'
+      summary:
+          'Constrains calibration errors of a closed-geometry network of
+          gravitational-wave detectors with the null stream and a Bayesian
+          recalibration likelihood.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'MIT'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/Leuven-Gravity-Institute/nullcal',
+            }
+          - {
+                label: 'docs',
+                url: 'https://leuven-gravity-institute.github.io/nullcal/',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/nullcal/' }
+
     - name: 'ripple'
       category: 'packages'
       summary: 'Differentiable gravitational waveforms in JAX.'
@@ -136,6 +156,19 @@ items:
           - { label: 'repo', url: 'https://github.com/GW-JAX-Team/Jim' }
           - { label: 'docs', url: 'https://gw-jax-team.github.io/Jim/' }
           - { label: 'pypi', url: 'https://pypi.org/project/jimgw/' }
+
+    - name: 'python-gitea'
+      category: 'packages'
+      summary:
+          'A Python client and command-line tool for the Gitea API, for
+          automating repositories, issues and project boards.'
+      role: 'maintainer'
+      tags: ['python', 'automation']
+      license: 'MIT'
+      links:
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/python-gitea' }
+          - { label: 'docs', url: 'https://isaac-cf-wong.com/python-gitea/' }
+          - { label: 'pypi', url: 'https://pypi.org/project/python-gitea/' }
 
     - name: 'detect-git-changes-action'
       category: 'github actions'
