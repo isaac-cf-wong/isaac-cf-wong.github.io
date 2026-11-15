@@ -1,0 +1,16 @@
+{% if service %}
+<section id="service" class="section">
+  {% if show_title %}<h2 class="section-title">Service and collaborations</h2>{% endif %}
+  {% for group in service %}
+  <h3 class="software-category">{{ group.category }}</h3>
+  <ul class="plain-list">
+    {% for item in group["items"] %}
+    <li class="plain-item">
+      <span class="plain-main">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</span>
+      {% if item.start or item.detail %}<span class="plain-meta">{% if item.start %}{{ item.start }}{% if item.end %}–{{ item.end }}{% endif %}{% endif %}{% if item.start and item.detail %} · {% endif %}{{ item.detail }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</section>
+{% endif %}

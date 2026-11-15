@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "supervision.schema.json",
+    "title": "Supervision",
+    "type": "object",
+    "required": ["items"],
+    "additionalProperties": false,
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["name", "institution", "level", "role", "start"],
+                "additionalProperties": false,
+                "properties": {
+                    "name": { "type": "string", "minLength": 1 },
+                    "institution": { "type": "string" },
+                    "level": { "type": "string" },
+                    "role": { "type": "string" },
+                    "topic": { "type": "string" },
+                    "start": { "type": "string" },
+                    "end": { "type": "string" },
+                    "note": { "type": "string" }
+                }
+            }
+        }
+    }
+}

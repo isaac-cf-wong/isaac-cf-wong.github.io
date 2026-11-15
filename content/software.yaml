@@ -4,7 +4,7 @@
 #
 # Each item:
 #   name      (required) the package / repository name
-#   category  (required) the group heading, e.g. 'Packages', 'Templates', 'Tools'
+#   category  (required) the group heading, e.g. 'Research packages', 'Templates'
 #   summary   one-line description (Markdown allowed)
 #   role      optional, e.g. 'Maintainer', 'Author', 'Contributor'
 #   license   optional SPDX id shown as a badge, e.g. 'MIT', 'Apache-2.0'
@@ -12,25 +12,21 @@
 #   links     list of {label, url}, e.g. Repo / Docs / PyPI / 'Use template'
 #
 # Set `items: null` to hide the whole section.
+#
+# Optional `cv` block, used only by the CV PDF (the website lists everything):
+#   collapse  categories the CV leaves out, summarised instead by...
+#   summary   one line shown after the remaining groups (Markdown allowed)
 # Validated against schemas/software.schema.json.
 
-items:
-    - name: 'bibsync'
-      category: 'packages'
-      summary:
-          'bibsync synchronizes BibTeX files from citation keys in LaTeX
-          sources. It is inspired by adstex, with provider support for both NASA
-          ADS and InspireHEP.'
-      role: 'maintainer'
-      tags: ['python', 'rust', 'bibtex']
-      license: 'BSD 3-Clause'
-      links:
-          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/bibsync' }
-          - { label: 'crates.io', url: 'https://crates.io/crates/bibsync' }
-          - { label: 'pypi', url: 'https://pypi.org/project/bibsync/' }
+cv:
+    collapse: ['GitHub actions', 'templates']
+    summary:
+        'Also maintained: project templates for Python, Rust and C++, a
+        reveal.js presentation template, and two GitHub Actions for CI.'
 
+items:
     - name: 'gwmock'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'A python package for generating mock data challenge datasets for the
           gravitational-wave community.'
@@ -45,7 +41,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock/' }
 
     - name: 'gwmock-signal'
-      category: 'packages'
+      category: 'research packages'
       summary: 'A Python package for simulating gravitational wave signals'
       role: 'maintainer'
       tags: ['python', 'gravitational-waves']
@@ -58,7 +54,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-signal/' }
 
     - name: 'gwmock-pop'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'A Python package for simulating populations of gravitational-wave
           sources.'
@@ -73,7 +69,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-pop/' }
 
     - name: 'gwmock-noise'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'A Python package for simulating gravitational wave detector noise.'
       role: 'maintainer'
@@ -86,8 +82,45 @@ items:
             }
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-noise/' }
 
+    - name: 'gwmock-data'
+      category: 'research packages'
+      summary:
+          'Shared data structures for the gwmock packages, so every package
+          reads and writes them the same way.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'BSD-3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/Leuven-Gravity-Institute/gwmock-data',
+            }
+          - {
+                label: 'docs',
+                url: 'https://leuven-gravity-institute.github.io/gwmock-data/',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock-data/' }
+
+    - name: 'gwmock-sevn'
+      category: 'research packages'
+      summary:
+          'SEVN, the binary population-synthesis code of Iorio et al. (2023), as
+          an installable Python package.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'BSD-3-Clause'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/Leuven-Gravity-Institute/gwmock-sevn',
+            }
+          - {
+                label: 'docs',
+                url: 'https://leuven-gravity-institute.github.io/gwmock-sevn/',
+            }
+
     - name: 'gwmock-benchmark'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'Shared benchmarking for the gwmock packages: one harness, the
           committed results, and the rendered report site — in one place.'
@@ -102,7 +135,7 @@ items:
           - { label: 'pypi', url: 'https://pypi.org/project/gwmock-benchmark/' }
 
     - name: 'nullpol'
-      category: 'packages'
+      category: 'research packages'
       summary:
           'Null-stream-based, unmodeled Bayesian framework for probing generic
           gravitational-wave polarizations.'
@@ -115,8 +148,93 @@ items:
 
     # --- Replace the example below with your real GitHub Actions. ---
 
+    - name: 'nullcal'
+      category: 'research packages'
+      summary:
+          'Constrains calibration errors of a closed-geometry network of
+          gravitational-wave detectors with the null stream and a Bayesian
+          recalibration likelihood.'
+      role: 'maintainer'
+      tags: ['python', 'gravitational-waves']
+      license: 'MIT'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/Leuven-Gravity-Institute/nullcal',
+            }
+          - {
+                label: 'docs',
+                url: 'https://leuven-gravity-institute.github.io/nullcal/',
+            }
+          - { label: 'pypi', url: 'https://pypi.org/project/nullcal/' }
+
+    - name: 'hydrax'
+      category: 'research packages'
+      summary:
+          'A Rust package for developing verified simulations of gravitational
+          waves from core-collapse supernovae.'
+      role: 'maintainer'
+      tags: ['rust', 'gravitational-waves']
+      license: 'BSD-3-Clause'
+      links:
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/hydrax' }
+          - { label: 'docs', url: 'https://isaac-cf-wong.com/hydrax/' }
+          - { label: 'crates.io', url: 'https://crates.io/crates/hydrax' }
+
+    - name: 'ripple'
+      category: 'research packages'
+      summary: 'Differentiable gravitational waveforms in JAX.'
+      role: 'contributor'
+      tags: ['python', 'jax', 'gravitational-waves']
+      license: 'GPL-2.0'
+      links:
+          - { label: 'repo', url: 'https://github.com/GW-JAX-Team/ripple' }
+          - { label: 'docs', url: 'https://gw-jax-team.github.io/ripple/' }
+          - { label: 'pypi', url: 'https://pypi.org/project/ripplegw/' }
+
+    - name: 'Jim'
+      category: 'research packages'
+      summary: 'Gravitational-wave data analysis tools in JAX.'
+      role: 'contributor'
+      tags: ['python', 'jax', 'gravitational-waves']
+      license: 'MIT'
+      links:
+          - { label: 'repo', url: 'https://github.com/GW-JAX-Team/Jim' }
+          - { label: 'docs', url: 'https://gw-jax-team.github.io/Jim/' }
+          - { label: 'pypi', url: 'https://pypi.org/project/jimgw/' }
+
+    - name: 'bibsync'
+      category: 'general-purpose packages'
+      summary:
+          'bibsync synchronizes BibTeX files from citation keys in LaTeX
+          sources. It is inspired by adstex, with provider support for both NASA
+          ADS and InspireHEP.'
+      role: 'maintainer'
+      tags: ['python', 'rust', 'bibtex']
+      license: 'BSD 3-Clause'
+      links:
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/bibsync' }
+          - { label: 'crates.io', url: 'https://crates.io/crates/bibsync' }
+          - { label: 'pypi', url: 'https://pypi.org/project/bibsync/' }
+
+    - name: 'python-gitea'
+      category: 'general-purpose packages'
+      summary:
+          'A Python client and command-line tool for the Gitea API, for
+          automating repositories, issues and project boards.'
+      role: 'maintainer'
+      tags: ['python', 'automation']
+      license: 'MIT'
+      links:
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/python-gitea',
+            }
+          - { label: 'docs', url: 'https://isaac-cf-wong.com/python-gitea/' }
+          - { label: 'pypi', url: 'https://pypi.org/project/python-gitea/' }
+
     - name: 'detect-git-changes-action'
-      category: 'github actions'
+      category: 'GitHub actions'
       summary: 'A GitHub action to detect changes in a git repository.'
       role: 'maintainer'
       tags: ['github-actions', 'ci']
@@ -132,7 +250,7 @@ items:
             }
 
     - name: 'dependency-support-policy-action'
-      category: 'github actions'
+      category: 'GitHub actions'
       summary:
           'Manage rolling minimum-supported versions for Python projects, as a
           standalone CLI and a GitHub Action, with built-in SPEC 0 support.'
@@ -185,6 +303,22 @@ items:
                 url: 'https://github.com/isaac-cf-wong/rust-package-template',
             }
 
+    - name: 'cpp-library-template'
+      category: 'templates'
+      summary: 'A template for C++ libraries.'
+      role: 'maintainer'
+      tags: ['cpp', 'template']
+      license: 'BSD 3-Clause'
+      links:
+          - {
+                label: 'use template',
+                url: 'https://github.com/new?template_name=cpp-library-template&template_owner=isaac-cf-wong',
+            }
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/cpp-library-template',
+            }
+
     - name: 'presentation-template'
       category: 'templates'
       summary:
@@ -205,5 +339,5 @@ items:
             }
           - {
                 label: 'sample presentation',
-                url: 'https://isaac-cf-wong.github.io/presentation-template/',
+                url: 'https://isaac-cf-wong.com/presentation-template/',
             }

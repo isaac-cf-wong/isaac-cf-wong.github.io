@@ -5,7 +5,7 @@
 
 site:
     # The full URL where the site is published (used for canonical links and metadata).
-    url: 'https://isaac-cf-wong.github.io'
+    url: 'https://isaac-cf-wong.com'
     # Browser tab title and the name used in metadata.
     title: 'Isaac C. F. Wong'
     tagline: 'Postdoctoral Researcher'
@@ -39,7 +39,8 @@ site:
         - slug: 'cv'
           label: 'CV'
           nav: true
-          sections: ['experience', 'education', 'awards']
+          sections:
+              ['experience', 'education', 'supervision', 'service', 'awards']
         - slug: 'projects'
           label: 'Projects'
           nav: true

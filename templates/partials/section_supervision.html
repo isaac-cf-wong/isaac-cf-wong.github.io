@@ -1,0 +1,13 @@
+{% if supervision %}
+<section id="supervision" class="section">
+  {% if show_title %}<h2 class="section-title">Supervision and mentoring</h2>{% endif %}
+  <ul class="plain-list">
+    {% for item in supervision %}
+    <li class="plain-item">
+      <span class="plain-main">{{ item.name }}{% if item.topic %}: {{ item.topic }}{% endif %}</span>
+      <span class="plain-meta">{{ item.role }} · {{ item.level }} · {{ item.institution }} · {{ item.start }}{% if item.end %}–{{ item.end }}{% endif %}{% if item.note %} · {{ item.note }}{% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

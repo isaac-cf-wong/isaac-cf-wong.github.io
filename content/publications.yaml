@@ -16,6 +16,21 @@
 items:
     - include: true
       highlight: false
+      title:
+          'Choosing a generator for streaming Gaussian noise in
+          gravitational-wave mock data: accuracy, cost and reproducibility'
+      authors:
+          - '**Isaac C.F. Wong**'
+      venue: 'arXiv:2611.01624 (submitted to Classical and Quantum Gravity)'
+      year: 2026
+      type: preprint
+      arxiv: '2611.01624'
+      source: manual
+      links:
+          - label: arXiv
+            url: https://arxiv.org/abs/2611.01624
+    - include: true
+      highlight: false
       title: The Science of the Einstein Telescope
       authors:
           - ET (incl. **C. F. Wong**)

@@ -1,0 +1,48 @@
+# Peer review, collaboration memberships and other service, grouped by
+# `category` in the order the categories first appear.
+# Validated against schemas/service.schema.json.
+#
+# Fields:
+#   category:   group heading, e.g. 'Peer review', 'Collaborations'
+#   title:      the role or membership
+#   start, end: years; use 'Present' for an ongoing role (both optional)
+#   detail:     one short line (optional)
+#   url:        a link (optional)
+
+items:
+    - category: 'Peer review'
+      title:
+          'Referee for Physical Review D, Physical Review Letters and The
+          Astrophysical Journal'
+      start: '2022'
+      end: 'Present'
+      detail:
+          'Physical Review D and Letters since 2022, The Astrophysical Journal
+          since 2025; 20 referee reports in total.'
+
+    - category: 'Collaborations'
+      title: 'LIGO–Virgo–KAGRA Collaboration, member'
+      start: '2018'
+      end: 'Present'
+      detail:
+          'Led the polarization tests of general relativity for GWTC-3 and
+          GWTC-4.0; code and results reviewer for the lensing analyses.'
+
+    - category: 'Collaborations'
+      title: 'Einstein Telescope Collaboration, member'
+      start: '2023'
+      end: 'Present'
+      detail:
+          'Studies comparing the triangle and 2L designs; lead developer of the
+          mock-data package gwmock and organiser of its code review.'
+
+    - category: 'Collaborations'
+      title:
+          'KU Leuven–Utrecht collaboration on the Einstein Telescope geometry'
+      detail: 'Weighing the triangle and 2L designs.'
+
+    - category: 'Collaborations'
+      title: 'GW-JAX-Team'
+      detail:
+          'Multi-institute JAX waveform and parameter-estimation codes for
+          next-generation data analysis.'

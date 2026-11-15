@@ -23,6 +23,7 @@ dependencies = [
   "pyyaml>=6.0.3",
   "jsonschema>=4.26.0",
   "markdown>=3.11.3",
+  "typst>=0.15.2",
 ]
 dynamic = ["version"]
 
@@ -43,7 +44,7 @@ release = ["git-cliff>=2.14.2"]
 isaac-cf-wong = "isaac_cf_wong.cli.main:app"
 
 [project.urls]
-Documentation = "https://isaac-cf-wong.github.io"
+Documentation = "https://isaac-cf-wong.com"
 Source = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io"
 Tracker = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io/issues"
 Home = "https://github.com/isaac-cf-wong/isaac-cf-wong.github.io"
