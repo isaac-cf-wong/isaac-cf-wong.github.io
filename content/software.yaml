@@ -85,7 +85,8 @@ items:
     - name: 'gwmock-data'
       category: 'research packages'
       summary:
-          'Shared data structures for the gwmock packages, so every package reads and writes them the same way.'
+          'Shared data structures for the gwmock packages, so every package
+          reads and writes them the same way.'
       role: 'maintainer'
       tags: ['python', 'gravitational-waves']
       license: 'BSD-3-Clause'
@@ -98,15 +99,13 @@ items:
                 label: 'docs',
                 url: 'https://leuven-gravity-institute.github.io/gwmock-data/',
             }
-          - {
-                label: 'pypi',
-                url: 'https://pypi.org/project/gwmock-data/',
-            }
+          - { label: 'pypi', url: 'https://pypi.org/project/gwmock-data/' }
 
     - name: 'gwmock-sevn'
       category: 'research packages'
       summary:
-          'SEVN, the binary population-synthesis code of Iorio et al. (2023), as an installable Python package.'
+          'SEVN, the binary population-synthesis code of Iorio et al. (2023), as
+          an installable Python package.'
       role: 'maintainer'
       tags: ['python', 'gravitational-waves']
       license: 'BSD-3-Clause'
@@ -172,23 +171,15 @@ items:
     - name: 'hydrax'
       category: 'research packages'
       summary:
-          'A Rust package for developing verified simulations of gravitational waves from core-collapse supernovae.'
+          'A Rust package for developing verified simulations of gravitational
+          waves from core-collapse supernovae.'
       role: 'maintainer'
       tags: ['rust', 'gravitational-waves']
       license: 'BSD-3-Clause'
       links:
-          - {
-                label: 'repo',
-                url: 'https://github.com/isaac-cf-wong/hydrax',
-            }
-          - {
-                label: 'docs',
-                url: 'https://isaac-cf-wong.com/hydrax/',
-            }
-          - {
-                label: 'crates.io',
-                url: 'https://crates.io/crates/hydrax',
-            }
+          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/hydrax' }
+          - { label: 'docs', url: 'https://isaac-cf-wong.com/hydrax/' }
+          - { label: 'crates.io', url: 'https://crates.io/crates/hydrax' }
 
     - name: 'ripple'
       category: 'research packages'
@@ -235,7 +226,10 @@ items:
       tags: ['python', 'automation']
       license: 'MIT'
       links:
-          - { label: 'repo', url: 'https://github.com/isaac-cf-wong/python-gitea' }
+          - {
+                label: 'repo',
+                url: 'https://github.com/isaac-cf-wong/python-gitea',
+            }
           - { label: 'docs', url: 'https://isaac-cf-wong.com/python-gitea/' }
           - { label: 'pypi', url: 'https://pypi.org/project/python-gitea/' }
 

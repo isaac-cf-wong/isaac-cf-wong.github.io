@@ -37,7 +37,8 @@ items:
           mock-data package gwmock and organiser of its code review.'
 
     - category: 'Collaborations'
-      title: 'KU Leuven–Utrecht collaboration on the Einstein Telescope geometry'
+      title:
+          'KU Leuven–Utrecht collaboration on the Einstein Telescope geometry'
       detail: 'Weighing the triangle and 2L designs.'
 
     - category: 'Collaborations'

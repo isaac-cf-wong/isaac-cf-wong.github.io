@@ -49,7 +49,8 @@ items:
       institution: 'KU Leuven'
       level: "Master's thesis"
       role: 'Daily advisor, with F. Cireddu'
-      topic: 'Deep-learning Newtonian-noise subtraction for the Einstein Telescope'
+      topic:
+          'Deep-learning Newtonian-noise subtraction for the Einstein Telescope'
       start: '2025'
       end: '2026'
 
