@@ -563,7 +563,7 @@ requires-dist = [
     { name = "jinja2", specifier = ">=3.1.6" },
     { name = "jsonschema", specifier = ">=4.26.0" },
     { name = "markdown", specifier = ">=3.11.3" },
-    { name = "pyyaml", specifier = ">=6.0.3" },
+    { name = "pyyaml", specifier = ">=6.0.4" },
     { name = "typer", specifier = ">=0.29.2" },
     { name = "typst", specifier = ">=0.15.2" },
 ]
